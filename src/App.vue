@@ -1,37 +1,42 @@
 <template>
     <div>
+        <loader v-if="!loaded"/>
         <ul id="menu">
-            <li data-menuanchor="intro" class="active"><a href="#page1">Intro</a></li>
+            <li data-menuanchor="intro" class="active"><a href="#intro">Intro</a></li>
             <li data-menuanchor="quality"><a href="#quality">Overall quality</a></li>
             <li data-menuanchor="npms"><a href="#npms">NPMS.io metrics</a></li>
         </ul>
-        <full-page :options="options" id="fullpage">
+        <full-page :options="options" id="fullpage" v-if="loaded">
             <div class="section">
-                <h3>Section 1</h3>
+                <h3>Intro</h3>
             </div>
+            <Qualscan :report=qualscanData v-if="qualscanData" />
             <div class="section">
+                <h3>Npms.io results</h3>
                 <div class="slide">
-                    <h3>Slide 2.1</h3>
+                  <h3>Final Score</h3>
                 </div>
                 <div class="slide">
-                    <h3>Slide 2.2</h3>
+                    <h3>Quality</h3>
                 </div>
-                <div class="slide">
-                    <h3>Slide 2.3</h3>
-                </div>
-            </div>
-            <div class="section">
-                <h3>Section 3</h3>
             </div>
         </full-page>
     </div>
 </template>
 
 <script>
+  import ReportService from '@/services/reports'
+  import Loader from '@/components/Loader'
+  import Qualscan from '@/components/Qualscan'
   export default {
     name: 'app',
+    components: {
+      Qualscan,
+      Loader
+    },
     data () {
       return {
+        loaded: false,
         options: {
           licenseKey: 'YOUR_KEY_HERE',
           afterLoad: this.afterLoad,
@@ -41,9 +46,17 @@
           navigation: true,
           navigationTooltips: ['Intro', 'Overal quality', "NPMS"],
           anchors: ['intro', 'quality', 'npms'],
-          sectionsColor: ['#41b883', '#ff5f45', '#0798ec', '#fec401', '#1bcee6', '#ee1a59', '#2c3e4f', '#ba5be9', '#b4b8ab']
-        }
+          sectionsColor: ['#41b883', '#343E59', '#0798ec', '#fec401', '#1bcee6', '#ee1a59', '#2c3e4f', '#ba5be9', '#b4b8ab']
+        },
+        qualscanData: null
       }
+    },
+    async created() {
+      const data = await ReportService.fetch()
+      this.qualscanData = {
+        avgQuality: data.quality
+      }
+      this.loaded = true
     },
     methods: {
       afterLoad () {
@@ -117,16 +130,21 @@ abbr,acronym{border:0}
 
 *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 
-body{font-family:arial,helvetica}
+body{font-family:arial,helvetica; min-width: 100v; min-height: 100vh; }
 
-.section{position:relative}
+.section{position:relative; color: #fff;}
 
 h3{font-size:5em;text-align:center;color:#fff;font-weight:700}
+h4{
+    font-size: 3em;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+}
 
 #menu-line{position:absolute;bottom:-4px;left:0;width:159px;height:2px;background:#fff}
 #menu{position:fixed;top:20px;right:20px;z-index:70;-webkit-font-smoothing:antialiased;-moz-font-smoothing:antialiased;letter-spacing:1px;font-size:1.1em}
 #menu li{display:inline-block;margin:10px 0;position:relative}
 #menu a{color:#fff;padding:0 1.1em 1.1em 1.1em}
 #menu li.active a:after{content:'';margin:0 1.1em 0 1.1em;height:2px;background:#fff;display:block;position:absolute;bottom:-6px;left:0;right:0;display:block}
-
 </style>
