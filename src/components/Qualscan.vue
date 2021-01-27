@@ -1,25 +1,30 @@
 
 <template>
     <div class="section">
-        <h3>Overall quality</h3>
-        <div class="row mt-4">
-            <div class="col-md-5">
-                <div class="mt-4">
-                    <apexchart width="100%" type="radialBar" :options="options" :series="series"></apexchart>
+        <div class="slide">
+            <h3>Overall quality</h3>
+            <div class="row mt-4">
+                <div class="col-md-5">
+                    <div class="mt-4">
+                        <apexchart width="100%" type="radialBar" :options="options" :series="series"></apexchart>
+                    </div>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <div class="align-middle explanation">
+                        This metric is the average of a full scanning, done with the tool <a href="https://github.com/wallet77/qualscan">Qualscan</a>.<br />
+                        Here is an overview of what is taken into account:
+                    </div>
+                    <ul class="features-list">
+                        <li>Project's size</li>
+                        <li>Number of dependencies</li>
+                        <li>Weight of all dependencies</li>
+                        <li>Percentage of code duplication</li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-md-7 align-self-center">
-                <div class="align-middle explanation">
-                    This metric is the average of a full scanning, done with the tool <a href="https://github.com/wallet77/qualscan">Qualscan</a>.<br />
-                    Here is an overview of what is taken into account:
-                </div>
-                <ul class="features-list">
-                    <li>Project's size</li>
-                    <li>Number of dependencies</li>
-                    <li>Weight of all dependencies</li>
-                    <li>Percentage of code duplication</li>
-                </ul>
-            </div>
+        </div>
+        <div class="slide">
+            <h3>Overall quality</h3>
         </div>
     </div>
 </template>
@@ -31,9 +36,7 @@ export default {
         report: Object
     },
     data () {
-       /// const value = this.report.quality
         return {
-            fullReport: this.report,
             options: {
                 chart: {
                     foreColor: '#ccc',
@@ -55,7 +58,7 @@ export default {
                                 show: true,
                                 color: '#3599b3',
                                 offsetY: 20,
-                                fontSize: '70px'
+                                fontSize: '5em'
                             }
                         },
                         track: {
@@ -80,7 +83,7 @@ export default {
                     lineCap: 'round'
                 }
             },
-            series: [40]
+            series: [Math.round(this.report.avgQuality)]
         }
     }
 }

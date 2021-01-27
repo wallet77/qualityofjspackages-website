@@ -4,6 +4,7 @@
         <ul id="menu">
             <li data-menuanchor="intro" class="active"><a href="#intro">Intro</a></li>
             <li data-menuanchor="quality"><a href="#quality">Overall quality</a></li>
+            <li data-menuanchor="copypaste"><a href="#copypaste">Copy/Paste</a></li>
             <li data-menuanchor="npms"><a href="#npms">NPMS.io metrics</a></li>
         </ul>
         <full-page :options="options" id="fullpage" v-if="loaded">
@@ -11,6 +12,7 @@
                 <h3>Intro</h3>
             </div>
             <Qualscan :report=qualscanData v-if="qualscanData" />
+            <CodeDuplication :report=cdData v-if="cdData" />
             <div class="section">
                 <h3>Npms.io results</h3>
                 <div class="slide">
@@ -28,10 +30,12 @@
   import ReportService from '@/services/reports'
   import Loader from '@/components/Loader'
   import Qualscan from '@/components/Qualscan'
+  import CodeDuplication from '@/components/CodeDuplication'
   export default {
     name: 'app',
     components: {
       Qualscan,
+      CodeDuplication,
       Loader
     },
     data () {
@@ -44,9 +48,9 @@
           scrollBar: false,
           menu: '#menu',
           navigation: true,
-          navigationTooltips: ['Intro', 'Overal quality', "NPMS"],
-          anchors: ['intro', 'quality', 'npms'],
-          sectionsColor: ['#41b883', '#343E59', '#0798ec', '#fec401', '#1bcee6', '#ee1a59', '#2c3e4f', '#ba5be9', '#b4b8ab']
+          navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "NPMS"],
+          anchors: ['intro', 'quality', 'copypaste', 'npms'],
+          sectionsColor: ['#41b883', '#343E59', '#213b4a', '#fec401', '#1bcee6', '#ee1a59', '#2c3e4f', '#ba5be9', '#b4b8ab']
         },
         qualscanData: null
       }
@@ -55,6 +59,9 @@
       const data = await ReportService.fetch()
       this.qualscanData = {
         avgQuality: data.quality
+      }
+      this.cdData = {
+        allAvgs: data.avgs
       }
       this.loaded = true
     },
