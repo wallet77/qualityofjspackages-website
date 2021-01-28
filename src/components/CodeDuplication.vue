@@ -55,7 +55,14 @@ export default {
                 },
                 yaxis: {
                     labels: {
-                        show: false
+                        show: true,
+                        style: {
+                            colors: [],
+                            fontSize: '1.3em',
+                            fontFamily: 'Helvetica, Arial, sans-serif',
+                            fontWeight: 400
+                        },
+                        rotate: 45
                     },
                     min: 0,
                     max: 100
@@ -64,10 +71,11 @@ export default {
                     enabled: true,
                     textAnchor: 'start',
                     style: {
-                        colors: ['#fff']
+                        fontSize: '1.5em',
+                        fontWeight: 'bold',
                     },
-                    formatter: function (val, opt) {
-                        return `${opt.w.globals.labels[opt.dataPointIndex]}:  ${val}%`
+                    formatter: function (val) {
+                        return `${val}%`
                     },
                     offsetX: 0,
                     dropShadow: {
