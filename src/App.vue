@@ -8,9 +8,7 @@
             <li data-menuanchor="npms"><a href="#npms">NPMS.io metrics</a></li>
         </ul>
         <full-page :options="options" id="fullpage" v-if="loaded">
-            <div class="section">
-                <h3>Intro</h3>
-            </div>
+            <Intro />
             <Qualscan :report=qualscanData v-if="qualscanData" />
             <CodeDuplication :report=cdData v-if="cdData" />
             <div class="section">
@@ -29,11 +27,13 @@
 <script>
   import ReportService from '@/services/reports'
   import Loader from '@/components/Loader'
+  import Intro from '@/components/Intro'
   import Qualscan from '@/components/Qualscan'
   import CodeDuplication from '@/components/CodeDuplication'
   export default {
     name: 'app',
     components: {
+      Intro,
       Qualscan,
       CodeDuplication,
       Loader
@@ -50,7 +50,7 @@
           navigation: true,
           navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "NPMS"],
           anchors: ['intro', 'quality', 'copypaste', 'npms'],
-          sectionsColor: ['#41b883', '#343E59', '#213b4a', '#fec401', '#1bcee6', '#ee1a59', '#2c3e4f', '#ba5be9', '#b4b8ab']
+          sectionsColor: ['#117540', '#343E59', '#213b4a', '#fec401', '#1bcee6', '#ee1a59', '#2c3e4f', '#ba5be9', '#b4b8ab']
         },
         qualscanData: null
       }
@@ -58,11 +58,9 @@
     async created() {
       const data = await ReportService.fetch()
       this.qualscanData = {
-        avgQuality: data.quality
+        avgQuality: data.metrics.general.qualscan.avg
       }
-      this.cdData = {
-        allAvgs: data.avgs
-      }
+      this.cdData = data.metrics['Code duplication']
       this.loaded = true
     },
     methods: {
@@ -154,4 +152,35 @@ h4{
 #menu li{display:inline-block;margin:10px 0;position:relative}
 #menu a{color:#fff;padding:0 1.1em 1.1em 1.1em}
 #menu li.active a:after{content:'';margin:0 1.1em 0 1.1em;height:2px;background:#fff;display:block;position:absolute;bottom:-6px;left:0;right:0;display:block}
+
+.valueImportant {
+    font-size: 2em;
+    font-weight: bold;
+    color: #3599b3;
+}
+.section a, a.visited {
+    color:#3599b3;
+    text-decoration: underline;
+}
+.explanation {
+    font-size: 1.8em;
+    padding: 50px;
+}
+.explanation ul {
+  list-style: none;
+  list-style-position: inside;
+}
+.section ul li:before {
+  content: "•";
+  font-size: 130%;
+  line-height: 0;
+  margin: 0 0.3rem 0 -0.25rem;
+  position: relative;
+  top: 0.08rem;
+  color: #4b9655;
+}
+.section li {
+    font-size: 25px;
+    margin-left: 30px;
+}
 </style>

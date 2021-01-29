@@ -9,9 +9,9 @@
                         <apexchart width="100%" type="radialBar" :options="options" :series="series"></apexchart>
                     </div>
                 </div>
-                <div class="col-md-7 align-self-center">
-                    <div class="align-middle explanation">
-                        This metric is the average of a full scanning, done with the tool <a href="https://github.com/wallet77/qualscan">Qualscan</a>.<br />
+                <div class="col-md-7 align-self-center explanation">
+                    <div class="align-middle">
+                        This metric is the average of a full scanning, done with the tool <a href="https://github.com/wallet77/qualscan" target="_blank" rel="noopener noreferrer">Qualscan</a>.<br />
                         Here is an overview of what is taken into account:
                     </div>
                     <ul class="features-list">
@@ -88,35 +88,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" scoped>
-.valueImportant {
-    font-size: 2em;
-    font-weight: bold;
-    color: #3599b3;
-}
-a, a.visited {
-    color:#3599b3;
-    text-decoration: underline;
-}
-.explanation {
-    font-size: 1.8em;
-}
-ul {
-  list-style: none;
-  list-style-position: inside;
-}
-ul li:before {
-  content: "•";
-  font-size: 130%;
-  line-height: 0;
-  margin: 0 0.3rem 0 -0.25rem;
-  position: relative;
-  top: 0.08rem;
-  color: #4b9655;
-}
-li {
-    font-size: 1.5em;
-    margin-left: 30px;
-}
-</style>

@@ -2,8 +2,30 @@
 <template>
     <div class="section">
         <div class="slide">
-            <h3>Copy/Paste</h3>
+            <h3>Code duplication</h3>
             <div class="row mt-4">
+                <div class="col-md-5">
+                    <div class="mt-4">
+                        <apexchart width="100%" type="bar" :options="optionsCD" :series="seriesCD"></apexchart>
+                    </div>
+                </div>
+                <div class="col-md-7 align-self-center explanation">
+                    <div class="align-middle">
+                        Code duplication decreases your code quality.<br />
+                        Possible impact:
+                    </div>
+                    <ul class="features-list">
+                        <li>Decrease maintainability</li>
+                        <li>Decrease code readability</li>
+                        <li>Increase security risks</li>
+                        <li>Increase code base size</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+         <div class="slide">
+            <h3>Explanations</h3>
+             <div class="row mt-4">
                 <div class="col-md-5">
                     <div class="mt-4">
                         <apexchart width="100%" type="bar" :options="optionsCD" :series="seriesCD"></apexchart>
@@ -11,7 +33,7 @@
                 </div>
                 <div class="col-md-7 align-self-center">
                     <div class="align-middle explanation">
-                        These metrics are calculated using the open source project <a href="https://github.com/kucherenko/jscpd">jscpd</a>.<br />
+                        These metrics are calculated using the open source project <a href="https://github.com/kucherenko/jscpd" target="_blank" rel="noopener noreferrer">jscpd</a>.<br />
                         Metrics:
                     </div>
                     <ul class="features-list">
@@ -20,9 +42,6 @@
                     </ul>
                 </div>
             </div>
-        </div>
-         <div class="slide">
-            <h3>Explanation</h3>
          </div>
     </div>
 </template>
@@ -101,8 +120,8 @@ export default {
             },
             seriesCD: [{
                 data: [
-                    Math.round(this.report.allAvgs['Code duplication']['percentage'] * 100),
-                    Math.round(this.report.allAvgs['Code duplication']['percentageTokens'] * 100)
+                    Math.round(this.report['percentage'].avg * 100),
+                    Math.round(this.report['percentageTokens'].avg * 100)
                 ]
             }]
             
@@ -110,35 +129,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" scoped>
-.valueImportant {
-    font-size: 2em;
-    font-weight: bold;
-    color: #3599b3;
-}
-a, a.visited {
-    color:#3599b3;
-    text-decoration: underline;
-}
-.explanation {
-    font-size: 1.8em;
-}
-ul {
-  list-style: none;
-  list-style-position: inside;
-}
-ul li:before {
-  content: "•";
-  font-size: 130%;
-  line-height: 0;
-  margin: 0 0.3rem 0 -0.25rem;
-  position: relative;
-  top: 0.08rem;
-  color: #4b9655;
-}
-li {
-    font-size: 1.5em;
-    margin-left: 30px;
-}
-</style>
