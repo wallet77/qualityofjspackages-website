@@ -19,6 +19,14 @@ import VueApexCharts from 'vue-apexcharts'
 Vue.use(VueApexCharts)
 Vue.component('apexchart', VueApexCharts)
 
+import dayjs from 'dayjs'
+
+Vue.filter('formatDate', function(value) {
+  if (value) {
+    return dayjs(value).format('DD/MM/YYYY hh:mm')
+  }
+})
+
 import App from './App.vue'
 
 Vue.config.productionTip = false

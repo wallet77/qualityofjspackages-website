@@ -8,7 +8,7 @@
             <li data-menuanchor="npms"><a href="#npms">NPMS.io metrics</a></li>
         </ul>
         <full-page :options="options" id="fullpage" v-if="loaded">
-            <Intro />
+            <Intro :date=date />
             <Qualscan :report=qualscanData v-if="qualscanData" />
             <CodeDuplication :report=cdData v-if="cdData" />
             <div class="section">
@@ -61,6 +61,7 @@
         avgQuality: data.metrics.general.qualscan.avg
       }
       this.cdData = data.metrics['Code duplication']
+      this.date = new Date(data.time)
       this.loaded = true
     },
     methods: {
