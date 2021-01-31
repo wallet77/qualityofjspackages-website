@@ -27,6 +27,13 @@ Vue.filter('formatDate', function(value) {
   }
 })
 
+import prettyMilliseconds from 'pretty-ms'
+Vue.filter('prettyMS', function(value) {
+  if (value) {
+    return prettyMilliseconds(value)
+  }
+})
+
 import App from './App.vue'
 
 Vue.config.productionTip = false

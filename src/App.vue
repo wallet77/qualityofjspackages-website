@@ -8,7 +8,7 @@
             <li data-menuanchor="npms"><a href="#npms">NPMS.io metrics</a></li>
         </ul>
         <full-page :options="options" id="fullpage" v-if="loaded">
-            <Intro :date=date />
+            <Intro :date=date :duration=duration />
             <Qualscan :report=qualscanData v-if="qualscanData" />
             <CodeDuplication :report=cdData v-if="cdData" />
             <div class="section">
@@ -62,6 +62,7 @@
       }
       this.cdData = data.metrics['Code duplication']
       this.date = new Date(data.time)
+      this.duration = data.duration / 1000000
       this.loaded = true
     },
     methods: {
