@@ -57,9 +57,7 @@
     },
     async created() {
       const data = await ReportService.fetch()
-      this.qualscanData = {
-        avgQuality: data.metrics.general.qualscan.avg
-      }
+      this.qualscanData = data.metrics.general.qualscan
       this.cdData = data.metrics['Code duplication']
       this.date = new Date(data.time)
       this.duration = data.duration / 1000000
@@ -184,5 +182,13 @@ h4{
 .section li {
     font-size: 25px;
     margin-left: 30px;
+}
+.info {
+  padding: 10px;
+  text-align: center;
+}
+
+.info hr {
+  border: 1px solid #638a70;
 }
 </style>
