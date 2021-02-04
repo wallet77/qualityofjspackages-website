@@ -11,15 +11,7 @@
             <Intro :date=date :duration=duration />
             <Qualscan :report=qualscanData v-if="qualscanData" />
             <CodeDuplication :report=cdData v-if="cdData" />
-            <div class="section">
-                <h3>Npms.io results</h3>
-                <div class="slide">
-                  <h3>Final Score</h3>
-                </div>
-                <div class="slide">
-                    <h3>Quality</h3>
-                </div>
-            </div>
+            <NPMS :report=npms v-if="npms" />
         </full-page>
     </div>
 </template>
@@ -29,12 +21,14 @@
   import Loader from '@/components/Loader'
   import Intro from '@/components/Intro'
   import Qualscan from '@/components/Qualscan'
+  import NPMS from '@/components/NPMS'
   import CodeDuplication from '@/components/CodeDuplication'
   export default {
     name: 'app',
     components: {
       Intro,
       Qualscan,
+      NPMS,
       CodeDuplication,
       Loader
     },
@@ -50,7 +44,7 @@
           navigation: true,
           navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "NPMS"],
           anchors: ['intro', 'quality', 'copypaste', 'npms'],
-          sectionsColor: ['#117540', '#343E59', '#213b4a', '#fec401', '#1bcee6', '#ee1a59', '#2c3e4f', '#ba5be9', '#b4b8ab']
+          sectionsColor: ['#117540', '#343E59', '#213b4a', '#4e3434']
         },
         qualscanData: null
       }
@@ -59,14 +53,15 @@
       const data = await ReportService.fetch()
       this.qualscanData = data.metrics.general.qualscan
       this.cdData = data.metrics['Code duplication']
+      this.npms = {
+          final: data.metrics.general.npmsFinal,
+          quality: data.metrics.general.npmsQuality,
+          maintenance: data.metrics.general.npmsMaintenance,
+          popularity: data.metrics.general.npmsPopularity
+      }
       this.date = new Date(data.time)
       this.duration = data.duration / 1000000
       this.loaded = true
-    },
-    methods: {
-      afterLoad () {
-        console.log('After load')
-      }
     }
   }
 </script>
