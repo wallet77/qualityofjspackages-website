@@ -28,9 +28,7 @@
             <h3>Details</h3>
             <div class="row mt-4">
                 <div class="col-md-5">
-                    <div class="mt-4">
-                        <apexchart width="100%" type="radialBar" :options="optionsDetails" :series="seriesDetails"></apexchart>
-                    </div>
+                    <apexchart width="100%" type="radialBar" :options="optionsDetails" :series="seriesDetails"></apexchart>
                 </div>
                 <div class="col-md-2 valueImportant info align-self-center">
                     {{ report.min }}%
