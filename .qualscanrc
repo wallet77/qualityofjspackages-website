@@ -1,0 +1,19 @@
+{
+    "dependencies-size": {
+        "budget": {
+            "fail": { "weight": "200000000", "dependencies": 300, "directDependencies": 15 }
+        }
+    },
+    "dependencies-check": {
+        "args": {
+            "ignoreMatches": [
+                "fullpage.js",
+                "@vue/cli-plugin-babel",
+                "@vue/cli-plugin-eslint",
+                "babel-eslint",
+                "node-sass",
+                "sass-loader"
+            ]
+        }
+    }
+}

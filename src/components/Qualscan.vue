@@ -4,11 +4,7 @@
         <div class="slide">
             <h3>Overall quality</h3>
             <div class="row mt-4">
-                <div class="col-md-5">
-                    <div class="mt-4">
-                        <apexchart width="100%" type="radialBar" :options="options" :series="series"></apexchart>
-                    </div>
-                </div>
+                <MainChart type="radialBar" :options="options" :series="series" />
                 <div class="col-md-7 align-self-center explanation">
                     <div class="align-middle">
                         Powered by <a href="https://github.com/wallet77/qualscan" target="_blank" rel="noopener noreferrer">Qualscan</a>
@@ -26,9 +22,7 @@
         <div class="slide">
             <h3>Details</h3>
             <div class="row mt-4">
-                <div class="col-md-5">
-                    <apexchart width="100%" type="radialBar" :options="optionsDetails" :series="seriesDetails"></apexchart>
-                </div>
+                <MainChart type="radialBar" :options="optionsDetails" :series="seriesDetails" />
                 <div class="col-md-2 valueImportant info align-self-center">
                     {{ report.min }}%
                     <hr />
@@ -50,10 +44,15 @@
 </template>
 
 <script>
+import MainChart from '@/components/MainChart'
+import {radialOptions} from '../variables'
 export default {
     name: 'qualscan',
     props: {
         report: Object
+    },
+    components: {
+        MainChart
     },
     data () {
         return {
@@ -97,53 +96,7 @@ export default {
                 }
             },
             series: [Math.round(this.report.avg)],
-            optionsDetails: {
-                chart: {
-                    foreColor: '#ccc',
-                },
-                plotOptions: {
-                    radialBar: {
-                        size: undefined,
-                        inverseOrder: true,
-                        hollow: {
-                            margin: 5,
-                            size: '48%',
-                            background: 'transparent',
-                        },
-                        dataLabels: {
-                            name: {
-                                show: false
-                            },
-                            value: {
-                                show: true,
-                                color: '#3599b3',
-                                offsetY: 20,
-                                fontSize: '5em'
-                            }
-                        },
-                        track: {
-                            show: false,
-                        },
-                        startAngle: -180,
-                        endAngle: 180
-                    }
-                },
-                labels: ['Third quartile', 'Median', 'First quartile', 'Average quality'],
-                legend: {
-                    show: true,
-                    floating: true,
-                    position: 'right',
-                    offsetX: 0,
-                    offsetY: 350,
-                    fontSize: '20px',
-                    formatter: function (val, opts) {
-                        return val + " - " + opts.w.globals.series[opts.seriesIndex] + '%'
-                    }
-                },
-                stroke: {
-                    lineCap: 'round'
-                }
-            },
+            optionsDetails: radialOptions,
             seriesDetails: [this.report.percentiles['75'], this.report.percentiles['50'], this.report.percentiles['25'], Math.round(this.report.avg)]
         }
     }

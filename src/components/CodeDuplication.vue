@@ -78,6 +78,19 @@
 
 <script>
 import MainChart from '@/components/MainChart'
+import {barOptions, mergeObject} from '../variables'
+
+const extendOptions = mergeObject(barOptions, {
+    dataLabels: {
+        style: {
+            fontSize: '1em'
+        }
+    },
+    legend: {
+        offsetX: 0,
+        offsetY: 0
+    }
+})
 export default {
     name: 'CodeDuplication',
     props: {
@@ -88,66 +101,7 @@ export default {
     },
     data () {
         return {
-            optionsCD: {
-                chart: {
-                    foreColor: '#ccc',
-                    toolbar: {
-                        show: false
-                    },
-                },
-                grid: {
-                    show: false,
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: true,
-                    }
-                },
-                xaxis: {
-                    categories: ['Lines', 'Tokens']
-                },
-                yaxis: {
-                    labels: {
-                        show: true,
-                        style: {
-                            colors: [],
-                            fontSize: '1.3em',
-                            fontFamily: 'Helvetica, Arial, sans-serif',
-                            fontWeight: 400
-                        },
-                        rotate: 45
-                    },
-                    min: 0
-                },
-                dataLabels: {
-                    enabled: true,
-                    textAnchor: 'start',
-                    style: {
-                        fontSize: '1.5em',
-                        fontWeight: 'bold',
-                    },
-                    formatter: function (val) {
-                        return `${val}%`
-                    },
-                    offsetX: 0,
-                    dropShadow: {
-                        enabled: true
-                    }
-                },
-                legend: {
-                    show: true,
-                    floating: false,
-                    position: 'right',
-                    offsetX: 100,
-                    offsetY: 350,
-                    formatter: function (val, opts) {
-                        return val + " - " + opts.w.globals.series[opts.seriesIndex] + '%'
-                    }
-                },
-                tooltip: {
-                    theme: 'dark'
-                }
-            },
+            optionsCD: barOptions,
             seriesCD: [{
                 name: 'Average',
                 data: [
@@ -155,63 +109,7 @@ export default {
                     Math.round(this.report['percentageTokens'].avg)
                 ]
             }],
-            optionsCDDetails: {
-                chart: {
-                    foreColor: '#ccc',
-                    toolbar: {
-                        show: false
-                    },
-                },
-                grid: {
-                    show: false,
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: true,
-                    }
-                },
-                xaxis: {
-                    categories: ['Lines', 'Tokens']
-                },
-                yaxis: {
-                    labels: {
-                        show: true,
-                        style: {
-                            colors: [],
-                            fontSize: '1.3em',
-                            fontFamily: 'Helvetica, Arial, sans-serif',
-                            fontWeight: 400
-                        },
-                        rotate: 45
-                    },
-                    min: 0,
-                },
-                dataLabels: {
-                    enabled: true,
-                    textAnchor: 'start',
-                    style: {
-                        fontSize: '1em',
-                        fontWeight: 'bold',
-                    },
-                    formatter: function (val) {
-                        return `${val}%`
-                    },
-                    offsetX: 0,
-                    dropShadow: {
-                        enabled: true
-                    }
-                },
-                legend: {
-                    show: true,
-                    floating: false,
-                    position: 'right',
-                    offsetX: 0,
-                    offsetY: 0
-                },
-                tooltip: {
-                    theme: 'dark'
-                }
-            },
+            optionsCDDetails: extendOptions,
             seriesCDDetails: [{
                 name: 'Average',
                 data: [
