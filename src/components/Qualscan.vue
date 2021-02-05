@@ -11,10 +11,9 @@
                 </div>
                 <div class="col-md-7 align-self-center explanation">
                     <div class="align-middle">
-                        This metric is the average of a full scanning, done with the tool <a href="https://github.com/wallet77/qualscan" target="_blank" rel="noopener noreferrer">Qualscan</a>.<br />
-                        Here is an overview of what is taken into account:
+                        Powered by <a href="https://github.com/wallet77/qualscan" target="_blank" rel="noopener noreferrer">Qualscan</a>
                     </div>
-                    <ul class="features-list">
+                    <ul class="features-list"> Here is an overview of what is taken into account:
                         <li>Project's size</li>
                         <li>Number of dependencies</li>
                         <li>Weight of all dependencies</li>
