@@ -5,12 +5,14 @@
             <li data-menuanchor="intro" class="active"><a href="#intro">Intro</a></li>
             <li data-menuanchor="quality"><a href="#quality">Overall quality</a></li>
             <li data-menuanchor="copypaste"><a href="#copypaste">Copy/Paste</a></li>
+            <li data-menuanchor="security"><a href="#security">Security</a></li>
             <li data-menuanchor="npms"><a href="#npms">NPMS.io metrics</a></li>
         </ul>
         <full-page :options="options" id="fullpage" v-if="loaded">
             <Intro :date=date :duration=duration />
             <Qualscan :report=qualscanData v-if="qualscanData" />
             <CodeDuplication :report=cdData v-if="cdData" />
+            <Security :report=security v-if="security" />
             <NPMS :report=npms v-if="npms" />
         </full-page>
     </div>
@@ -22,6 +24,7 @@
   import Intro from '@/components/Intro'
   import Qualscan from '@/components/Qualscan'
   import NPMS from '@/components/NPMS'
+  import Security from '@/components/Security'
   import CodeDuplication from '@/components/CodeDuplication'
   export default {
     name: 'app',
@@ -29,6 +32,7 @@
       Intro,
       Qualscan,
       NPMS,
+      Security,
       CodeDuplication,
       Loader
     },
@@ -42,9 +46,9 @@
           scrollBar: false,
           menu: '#menu',
           navigation: true,
-          navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "NPMS"],
-          anchors: ['intro', 'quality', 'copypaste', 'npms'],
-          sectionsColor: ['#117540', '#343E59', '#213b4a', '#4e3434']
+          navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Security", "NPMS"],
+          anchors: ['intro', 'quality', 'copypaste', 'security', 'npms'],
+          sectionsColor: ['#117540', '#343E59', '#213b4a', '#34354e', '#4e3434']
         },
         qualscanData: null
       }
@@ -53,6 +57,7 @@
       const data = await ReportService.fetch()
       this.qualscanData = data.metrics.general.qualscan
       this.cdData = data.metrics['Code duplication']
+      this.security = data.metrics['Security audit']
       this.npms = {
           final: data.metrics.general.npmsFinal,
           quality: data.metrics.general.npmsQuality,
