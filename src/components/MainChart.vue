@@ -1,0 +1,19 @@
+<template>
+    <div class="col-md-5">
+        <div class="mt-4">
+            <apexchart width="100%" :type="type" :options="options" :series="series"></apexchart>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'MainChart',
+    props: {
+        report: Object,
+        type: String,
+        options: Object,
+        series: Array
+    }
+}
+</script>

@@ -4,11 +4,7 @@
         <div class="slide">
             <h3>npms.io results</h3>
             <div class="row mt-4">
-                <div class="col-md-5">
-                    <div class="mt-4">
-                        <apexchart width="100%" type="bar" :options="options" :series="series"></apexchart>
-                    </div>
-                </div>
+                <MainChart type="bar" :options="options" :series="series" />
                 <div class="col-md-7 align-self-center explanation">
                     <div class="align-middle">
                         Powered by <a href="https://npms.io" target="_blank" rel="noopener noreferrer">Npms.io</a>.<br />
@@ -23,47 +19,19 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="slide">
-            <h3>Details</h3>
-            <div class="row mt-4">
-                <div class="col-md-5">
-                    <apexchart width="100%" type="radialBar" :options="optionsDetails" :series="seriesDetails"></apexchart>
-                </div>
-                <div class="col-md-2 valueImportant info align-self-center">
-                    {{ report.min }}%
-                    <hr />
-                    Min
-                </div>
-                <div class="col-md-2 valueImportant info align-self-center">
-                    {{ report.max }}%
-                    <hr />
-                    Max
-                </div>
-                <div class="col-md-2 valueImportant info align-self-center">
-                    {{ report.total }}
-                    <hr />
-                    Total packages
-                </div>
-            </div>
-        </div> -->
     </div>
 </template>
 
 <script>
-const colors = [
-      '#008FFB',
-      '#00E396',
-      '#FEB019',
-      '#FF4560',
-      '#775DD0',
-      '#546E7A',
-      '#26a69a',
-      '#D10CE8'
-]
+import MainChart from '@/components/MainChart'
+import {colors} from '../variables'
 export default {
     name: 'npms',
     props: {
         report: Object
+    },
+    components: {
+      MainChart
     },
     data () {
         return {

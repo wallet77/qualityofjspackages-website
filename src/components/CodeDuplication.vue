@@ -4,11 +4,7 @@
         <div class="slide">
             <h3>Code duplication</h3>
             <div class="row mt-4">
-                <div class="col-md-5">
-                    <div class="mt-4">
-                        <apexchart width="100%" type="bar" :options="optionsCD" :series="seriesCD"></apexchart>
-                    </div>
-                </div>
+                <MainChart type="bar" :options="optionsCD" :series="seriesCD" />
                 <div class="col-md-7 align-self-center explanation">
                     <div class="align-middle">
                         Code duplication decreases your code quality.<br />
@@ -25,7 +21,7 @@
         </div>
          <div class="slide">
             <h3>Details</h3>
-             <div class="row mt-4">
+            <div class="row mt-4">
                 <div class="col-md-5">
                     <div class="mt-4">
                         <apexchart width="100%" type="bar" :options="optionsCDDetails" :series="seriesCDDetails"></apexchart>
@@ -81,10 +77,14 @@
 </template>
 
 <script>
+import MainChart from '@/components/MainChart'
 export default {
     name: 'CodeDuplication',
     props: {
         report: Object
+    },
+    components: {
+        MainChart
     },
     data () {
         return {
