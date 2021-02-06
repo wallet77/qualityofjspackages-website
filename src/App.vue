@@ -3,10 +3,10 @@
         <loader v-if="!loaded"/>
         <ul id="menu">
             <li data-menuanchor="intro" class="active"><a href="#intro">Intro</a></li>
-            <li data-menuanchor="quality"><a href="#quality">Overall quality</a></li>
+            <li data-menuanchor="quality"><a href="#quality">Overview</a></li>
             <li data-menuanchor="copypaste"><a href="#copypaste">Copy/Paste</a></li>
             <li data-menuanchor="security"><a href="#security">Security</a></li>
-            <li data-menuanchor="npms"><a href="#npms">NPMS.io metrics</a></li>
+            <li data-menuanchor="npms"><a href="#npms">npms.io</a></li>
         </ul>
         <full-page :options="options" id="fullpage" v-if="loaded">
             <Intro :date=date :duration=duration />
