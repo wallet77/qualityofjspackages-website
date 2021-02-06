@@ -9,6 +9,7 @@
                     <div class="align-middle">
                         Powered by <a href="https://github.com/wallet77/qualscan" target="_blank" rel="noopener noreferrer">Qualscan</a>
                     </div>
+                    <br />
                     <ul class="features-list"> Here is an overview of what is taken into account:
                         <li>Project's size</li>
                         <li>Number of dependencies</li>

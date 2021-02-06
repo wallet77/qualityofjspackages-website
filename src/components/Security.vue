@@ -7,11 +7,10 @@
                 <MainChart type="bar" :options="options" :series="series" />
                 <div class="col-md-7 align-self-center explanation">
                     <div class="align-middle">
-                        Powered by <a href="https://docs.npmjs.com/cli/v6/commands/npm-audit" target="_blank" rel="noopener noreferrer">NPM audit</a>.<br />
-                        <br />
-                        Possible values:
+                        Powered by <a href="https://docs.npmjs.com/cli/v6/commands/npm-audit" target="_blank" rel="noopener noreferrer">NPM audit</a>.
                     </div>
-                    <ul class="features-list">
+                    <br />
+                    <ul class="features-list">Possible values:
                         <li>Critical</li>
                         <li>High</li>
                         <li>Moderate</li>

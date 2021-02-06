@@ -7,10 +7,10 @@
                 <MainChart type="bar" :options="optionsNpms" :series="seriesNpms" />
                 <div class="col-md-7 align-self-center explanation">
                     <div class="align-middle">
-                        Powered by <a href="https://npms.io" target="_blank" rel="noopener noreferrer">Npms.io</a>.<br />
-                        Here is an overview of what is taken into account:
+                        Powered by <a href="https://npms.io" target="_blank" rel="noopener noreferrer">Npms.io</a>.
                     </div>
-                    <ul class="features-list">
+                    <br />
+                    <ul class="features-list">Here is an overview of what is taken into account:
                         <li>Final score</li>
                         <li>Quality</li>
                         <li>Maintenance</li>
