@@ -6,11 +6,12 @@
             <div class="row mt-4">
                 <MainChart type="bar" :options="options" :series="series" />
                 <div class="col-md-7 align-self-center explanation">
-                    <div class="align-middle">
+                    <div>
                         Powered by <a href="https://docs.npmjs.com/cli/v6/commands/npm-audit" target="_blank" rel="noopener noreferrer">NPM audit</a>.
                     </div>
                     <br />
-                    <ul class="features-list">Possible values:
+                    Possible values:
+                    <ul class="features-list">
                         <li>Critical</li>
                         <li>High</li>
                         <li>Moderate</li>

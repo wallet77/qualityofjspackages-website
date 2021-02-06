@@ -41,9 +41,9 @@
         loaded: false,
         options: {
           licenseKey: 'YOUR_KEY_HERE',
-          afterLoad: this.afterLoad,
           scrollOverflow: true,
           scrollBar: false,
+          autoScrolling: true,
           menu: '#menu',
           navigation: true,
           navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Security", "NPMS"],
@@ -190,5 +190,9 @@ h4{
 
 .info hr {
   border: 1px solid #638a70;
+}
+
+img {
+    aspect-ratio: attr(width) / attr(height);
 }
 </style>

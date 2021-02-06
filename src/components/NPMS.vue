@@ -6,11 +6,12 @@
             <div class="row mt-4">
                 <MainChart type="bar" :options="optionsNpms" :series="seriesNpms" />
                 <div class="col-md-7 align-self-center explanation">
-                    <div class="align-middle">
+                    <div>
                         Powered by <a href="https://npms.io" target="_blank" rel="noopener noreferrer">Npms.io</a>.
                     </div>
                     <br />
-                    <ul class="features-list">Here is an overview of what is taken into account:
+                    Here is an overview of what is taken into account:
+                    <ul class="features-list">
                         <li>Final score</li>
                         <li>Quality</li>
                         <li>Maintenance</li>

@@ -6,11 +6,12 @@
             <div class="row mt-4">
                 <MainChart type="bar" :options="optionsCD" :series="seriesCD" />
                 <div class="col-md-7 align-self-center explanation">
-                    <div class="align-middle">
+                    <div>
                         Code duplication decreases your code quality.
                     </div>
                     <br />
-                    <ul class="features-list">Possible impact:
+                    Possible impact:
+                    <ul class="features-list">
                         <li>Decrease maintainability</li>
                         <li>Decrease code readability</li>
                         <li>Increase security risks</li>

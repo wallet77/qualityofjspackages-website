@@ -4,7 +4,7 @@
         <h3>What is it?</h3>
         <div class="row mt-4">
             <div class="col-md-1 align-self-center">
-                <img :src="`${publicPath}logo.png`">
+                <img :src="`${publicPath}logo.png`" width="200" height="200" alt="logo">
             </div>
             <div class="col-md-4 align-self-center">
                 <h4>State Of JS Packages</h4>

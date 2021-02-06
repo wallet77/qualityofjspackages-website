@@ -6,11 +6,12 @@
             <div class="row mt-4">
                 <MainChart type="radialBar" :options="options" :series="series" />
                 <div class="col-md-7 align-self-center explanation">
-                    <div class="align-middle">
+                    <div>
                         Powered by <a href="https://github.com/wallet77/qualscan" target="_blank" rel="noopener noreferrer">Qualscan</a>
                     </div>
                     <br />
-                    <ul class="features-list"> Here is an overview of what is taken into account:
+                    Here is an overview of what is taken into account:
+                    <ul class="features-list">
                         <li>Project's size</li>
                         <li>Number of dependencies</li>
                         <li>Weight of all dependencies</li>
