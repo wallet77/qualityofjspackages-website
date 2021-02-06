@@ -18,7 +18,13 @@
   "files": [
     "src/**"
   ],
-  "keywords": ["state", "npm", "javascript", "packages", "quality"],
+  "keywords": [
+    "state",
+    "npm",
+    "javascript",
+    "packages",
+    "quality"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/wallet77/stateofjsdep-ui"
@@ -49,8 +55,6 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.19.0",
     "eslint-plugin-vue": "^7.5.0",
-    "node-sass": "^5.0.0",
-    "sass-loader": "^11.0.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
