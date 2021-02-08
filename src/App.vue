@@ -5,6 +5,7 @@
             <li data-menuanchor="intro" class="active"><a href="#intro">Intro</a></li>
             <li data-menuanchor="quality"><a href="#quality">Overview</a></li>
             <li data-menuanchor="copypaste"><a href="#copypaste">Copy/Paste</a></li>
+            <li data-menuanchor="dependencies"><a href="#dependencies">Dependencies</a></li>
             <li data-menuanchor="security"><a href="#security">Security</a></li>
             <li data-menuanchor="npms"><a href="#npms">npms.io</a></li>
         </ul>
@@ -12,6 +13,7 @@
             <Intro :date=date :duration=duration />
             <Qualscan :report=qualscanData v-if="qualscanData" />
             <CodeDuplication :report=cdData v-if="cdData" />
+            <Dependencies :report=dep v-if="dep" />
             <Security :report=security v-if="security" />
             <NPMS :report=npms v-if="npms" />
         </full-page>
@@ -24,6 +26,7 @@
   import Intro from '@/components/Intro'
   import Qualscan from '@/components/Qualscan'
   import NPMS from '@/components/NPMS'
+  import Dependencies from '@/components/Dependencies'
   import Security from '@/components/Security'
   import CodeDuplication from '@/components/CodeDuplication'
   export default {
@@ -34,6 +37,7 @@
       NPMS,
       Security,
       CodeDuplication,
+      Dependencies,
       Loader
     },
     data () {
@@ -46,9 +50,9 @@
           autoScrolling: true,
           menu: '#menu',
           navigation: true,
-          navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Security", "NPMS"],
-          anchors: ['intro', 'quality', 'copypaste', 'security', 'npms'],
-          sectionsColor: ['#117540', '#343E59', '#213b4a', '#34354e', '#4e3434']
+          navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Dependencies", "Security", "NPMS"],
+          anchors: ['intro', 'quality', 'copypaste', 'dependencies', 'security', 'npms'],
+          sectionsColor: ['#117540', '#343E59', '#213b4a', '#232131', '#34354e', '#4e3434']
         },
         qualscanData: null
       }
@@ -66,6 +70,11 @@
           quality: data.metrics.general.npmsQuality,
           maintenance: data.metrics.general.npmsMaintenance,
           popularity: data.metrics.general.npmsPopularity
+      }
+      this.dep = {
+        updates: data.metrics['Dependencies updates'],
+        check: data.metrics['Dependencies check'],
+        exactVersions: data.metrics['Exact version of dependencies']
       }
       this.date = new Date(data.time)
       this.duration = data.duration / 1000000
@@ -149,6 +158,9 @@ h4{
     color: #fff;
     font-weight: 700;
 }
+h5{
+  font-size: 20px;
+}
 
 #menu-line{position:absolute;bottom:-4px;left:0;width:159px;height:2px;background:#fff}
 #menu{position:fixed;top:20px;right:20px;z-index:70;-webkit-font-smoothing:antialiased;-moz-font-smoothing:antialiased;letter-spacing:1px;font-size:1.1em}
@@ -160,6 +172,12 @@ h4{
     font-size: 2em;
     font-weight: bold;
     color: #3599b3;
+}
+.valueWarn {
+  color:#d0a05a;
+}
+.valueCritical {
+  color:#d05a5a;
 }
 .section a, a.visited {
     color:#3599b3;
