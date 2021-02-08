@@ -22,24 +22,32 @@
             </div>
         </div>
         <div class="slide">
-            <h3>Details</h3>
+            <h3>Percentiles</h3>
             <div class="row mt-4">
                 <MainChart type="radialBar" :options="optionsDetails" :series="seriesDetails" />
                 <div class="col-md-2 valueImportant info align-self-center">
-                    {{ report.min }}%
+                    {{ report.qualscan.min }}%
                     <hr />
                     Min
                 </div>
                 <div class="col-md-2 valueImportant info align-self-center">
-                    {{ report.max }}%
+                    {{ report.qualscan.max }}%
                     <hr />
                     Max
                 </div>
                 <div class="col-md-2 valueImportant info align-self-center">
-                    {{ report.total }}
+                    {{ report.qualscan.total }}
                     <hr />
                     Total packages
                 </div>
+            </div>
+        </div>
+        <div class="slide">
+            <h3>Details</h3>
+            <div class="row mt-4">
+                <div class="col-md-2"></div>
+                <MainChart type="bar" :options="optionsProgress" :series="seriesProgress" :col=8 />
+                <div class="col-md-2"></div>
             </div>
         </div>
     </div>
@@ -57,6 +65,85 @@ export default {
         MainChart
     },
     data () {
+        const seriesProgress = [{
+            name: 'info',
+            data: []
+        }, {
+            name: 'succeed',
+            data: []
+        }, {
+            name: 'warn',
+            data: []
+        }, {
+            name: 'fail',
+            data: []
+        }]
+        const categories = []
+
+        for(const cmdName in this.report.details) {
+            const cmd = this.report.details[cmdName]
+
+            categories.push(cmdName.split(' '))
+            seriesProgress[0].data.push(cmd.info ? cmd.info : 0)
+            seriesProgress[1].data.push(cmd.succeed ? cmd.succeed : 0)
+            seriesProgress[2].data.push(cmd.warn ? cmd.warn : 0)
+            seriesProgress[3].data.push(cmd.fail ? cmd.fail : 0)
+        }
+
+        const optionsProgress = {
+                chart: {
+                    height: '100%',
+                    stacked: true,
+                    stackType: '100%',
+                    foreColor: '#ccc',
+                    toolbar: {
+                        show: false
+                    },
+                },
+                grid: {
+                    show: false,
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: true,
+                        colors: {
+                            backgroundBarColors: ['transparent']
+                        }
+                    },
+                },
+                stroke: {
+                    width: 0,
+                },
+                tooltip: {
+                    enabled: false
+                },
+                xaxis: {
+                    categories: categories,
+                    labels: {
+                        show: false
+                    },
+                    axisBorder: { show: false },
+                    axisTicks: { show: false },
+                },
+                yaxis: {
+                    max: 100,
+                    labels: {
+                        style: {
+                            fontSize: '15px',
+                        }
+                    }
+                },
+                fill: {
+                    opacity: 1
+                },
+                legend: {
+                    fontSize: '20px',
+                    position: 'top',
+                    horizontalAlign: 'left',
+                    offsetX: 40
+                }
+        }
+
         return {
             options: {
                 chart: {
@@ -97,9 +184,15 @@ export default {
                     lineCap: 'round'
                 }
             },
-            series: [Math.round(this.report.avg)],
+            series: [Math.round(this.report.qualscan.avg)],
             optionsDetails: radialOptions,
-            seriesDetails: [this.report.percentiles['75'], this.report.percentiles['50'], this.report.percentiles['25'], Math.round(this.report.avg)]
+            seriesDetails: [
+                this.report.qualscan.percentiles['75'],
+                this.report.qualscan.percentiles['50'],
+                this.report.qualscan.percentiles['25'],
+                Math.round(this.report.qualscan.avg)],
+            optionsProgress: optionsProgress,
+            seriesProgress: seriesProgress
         }
     }
 }

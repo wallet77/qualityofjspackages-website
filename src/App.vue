@@ -55,7 +55,10 @@
     },
     async created() {
       const data = await ReportService.fetch()
-      this.qualscanData = data.metrics.general.qualscan
+      this.qualscanData = {
+        qualscan: data.metrics.general.qualscan,
+        details: data.metrics.qualscanMetrics
+      }
       this.cdData = data.metrics['Code duplication']
       this.security = data.metrics['Security audit']
       this.npms = {

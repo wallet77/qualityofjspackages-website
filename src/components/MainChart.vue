@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-5">
+    <div :class="'col-md-' + col">
         <div class="mt-4">
             <apexchart width="100%" :type="type" :options="options" :series="series"></apexchart>
         </div>
@@ -13,7 +13,13 @@ export default {
         report: Object,
         type: String,
         options: Object,
-        series: Array
+        series: Array,
+        col: {
+            type: Number,
+            default: function () {
+                return 5
+            }
+        }
     }
 }
 </script>
