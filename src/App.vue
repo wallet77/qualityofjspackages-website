@@ -6,6 +6,7 @@
             <li data-menuanchor="quality"><a href="#quality">Overview</a></li>
             <li data-menuanchor="copypaste"><a href="#copypaste">Copy/Paste</a></li>
             <li data-menuanchor="dependencies"><a href="#dependencies">Dependencies</a></li>
+            <li data-menuanchor="performance"><a href="#performance">Performance</a></li>
             <li data-menuanchor="security"><a href="#security">Security</a></li>
             <li data-menuanchor="npms"><a href="#npms">npms.io</a></li>
         </ul>
@@ -14,6 +15,7 @@
             <Qualscan :report=qualscanData v-if="qualscanData" />
             <CodeDuplication :report=cdData v-if="cdData" />
             <Dependencies :report=dep v-if="dep" />
+            <Performance :report=perf v-if="perf" />
             <Security :report=security v-if="security" />
             <NPMS :report=npms v-if="npms" />
         </full-page>
@@ -27,6 +29,7 @@
   import Qualscan from '@/components/Qualscan'
   import NPMS from '@/components/NPMS'
   import Dependencies from '@/components/Dependencies'
+  import Performance from '@/components/Performance'
   import Security from '@/components/Security'
   import CodeDuplication from '@/components/CodeDuplication'
   export default {
@@ -38,6 +41,7 @@
       Security,
       CodeDuplication,
       Dependencies,
+      Performance,
       Loader
     },
     data () {
@@ -50,9 +54,9 @@
           autoScrolling: true,
           menu: '#menu',
           navigation: true,
-          navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Dependencies", "Security", "NPMS"],
-          anchors: ['intro', 'quality', 'copypaste', 'dependencies', 'security', 'npms'],
-          sectionsColor: ['#117540', '#343E59', '#213b4a', '#232131', '#34354e', '#4e3434']
+          navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Dependencies", "Performance", "Security", "NPMS"],
+          anchors: ['intro', 'quality', 'copypaste', 'dependencies', 'performance', 'security', 'npms'],
+          sectionsColor: ['#117540', '#343E59', '#213b4a', '#232131', '#381535', '#34354e', '#4e3434']
         },
         qualscanData: null
       }
@@ -75,6 +79,11 @@
         updates: data.metrics['Dependencies updates'],
         check: data.metrics['Dependencies check'],
         exactVersions: data.metrics['Exact version of dependencies']
+      }
+      this.perf = {
+        depSize: data.metrics['Dependencies size'],
+        packageSize: data.metrics['Project\'s size'],
+        requireTime: data.metrics['Require time']
       }
       this.date = new Date(data.time)
       this.duration = data.duration / 1000000

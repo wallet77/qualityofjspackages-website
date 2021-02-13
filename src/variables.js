@@ -131,3 +131,7 @@ export const mergeObject = (target, source) => {
     Object.assign(target || {}, source)
     return target
 }
+
+export const clone = (a) => {
+    return JSON.parse(JSON.stringify(a))
+ }

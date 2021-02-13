@@ -136,7 +136,6 @@ export default {
                     Math.round(this.report['percentageTokens'].percentiles['75'])
                 ]
             }]
-            
         }
     }
 }
