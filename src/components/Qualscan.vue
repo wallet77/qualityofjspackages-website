@@ -45,9 +45,9 @@
         <div class="slide">
             <h3>Details</h3>
             <div class="row mt-4">
-                <div class="col-md-2"></div>
-                <MainChart type="bar" :options="optionsProgress" :series="seriesProgress" :col=8 />
-                <div class="col-md-2"></div>
+                <div class="col-md-3"></div>
+                <MainChart type="bar" :options="optionsProgress" :series="seriesProgress" :col=6 />
+                <div class="col-md-3"></div>
             </div>
         </div>
     </div>
