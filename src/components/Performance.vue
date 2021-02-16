@@ -19,7 +19,7 @@ import {barOptions, mergeObject, clone} from '../variables'
 
 const options = mergeObject(clone(barOptions), {
     xaxis: {
-        categories: ['Direct dep', 'Sub dep']
+        categories: ['Direct dependencies', 'Sub dependencies']
     },
     dataLabels: {
         style: {

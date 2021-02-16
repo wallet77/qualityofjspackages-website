@@ -9,6 +9,7 @@
             <li data-menuanchor="performance"><a href="#performance">Performance</a></li>
             <li data-menuanchor="security"><a href="#security">Security</a></li>
             <li data-menuanchor="npms"><a href="#npms">npms.io</a></li>
+            <li data-menuanchor="contact"><a href="#contact">Contact</a></li>
         </ul>
         <full-page :options="options" id="fullpage" v-if="loaded">
             <Intro :date=date :duration=duration />
@@ -18,6 +19,7 @@
             <Performance :report=perf v-if="perf" />
             <Security :report=security v-if="security" />
             <NPMS :report=npms v-if="npms" />
+            <Contact />
         </full-page>
     </div>
 </template>
@@ -26,6 +28,7 @@
   import ReportService from '@/services/reports'
   import Loader from '@/components/Loader'
   import Intro from '@/components/Intro'
+  import Contact from '@/components/Contact'
   import Qualscan from '@/components/Qualscan'
   import NPMS from '@/components/NPMS'
   import Dependencies from '@/components/Dependencies'
@@ -36,6 +39,7 @@
     name: 'app',
     components: {
       Intro,
+      Contact,
       Qualscan,
       NPMS,
       Security,
@@ -54,9 +58,9 @@
           autoScrolling: true,
           menu: '#menu',
           navigation: true,
-          navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Dependencies", "Performance", "Security", "NPMS"],
-          anchors: ['intro', 'quality', 'copypaste', 'dependencies', 'performance', 'security', 'npms'],
-          sectionsColor: ['#117540', '#343E59', '#213b4a', '#232131', '#381535', '#34354e', '#4e3434']
+          navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Dependencies", "Performance", "Security", "NPMS", 'Contact'],
+          anchors: ['intro', 'quality', 'copypaste', 'dependencies', 'performance', 'security', 'npms', 'contact'],
+          sectionsColor: ['#117540', '#343E59', '#213b4a', '#232131', '#381535', '#34354e', '#4e3434', '#335251']
         },
         qualscanData: null
       }

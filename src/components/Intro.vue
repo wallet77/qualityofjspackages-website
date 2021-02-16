@@ -15,14 +15,8 @@
                     <br/><br />
                     All the charts are based on a report automatically generated after the analysis of the top 1000 <a href="https://www.npmjs.com/browse/depended" target="_blank" rel="noopener noreferrer">most depended packages <font-awesome-icon :icon="['fab', 'npm']" /></a>.
                     <br /><br />
-                    Last generated report: {{ date | formatDate }} in {{ duration | prettyMS }}
-                    <br /><br />
-                    If you see any error or if you just want to participate <font-awesome-icon :icon="['far', 'smile-wink']" />, feel free to check the project's <font-awesome-icon :icon="['fab', 'github-alt']" /> repositories:
+                    <u>Last generated report:</u> <b>{{ date | formatDate }} in {{ duration | prettyMS }}</b>
                 </div>
-                <ul class="features-list">
-                    <li>Report generator</li>
-                    <li>Website</li>
-                </ul>
             </div>
         </div>
     </div>
