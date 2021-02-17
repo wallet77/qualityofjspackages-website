@@ -171,7 +171,7 @@ h4{
     color: #fff;
     font-weight: 700;
 }
-h5{
+.subTitle{
   font-size: 20px;
 }
 
