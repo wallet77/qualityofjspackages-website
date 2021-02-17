@@ -1,6 +1,7 @@
-import data from '@/resources/data.json'
+const axios = require('axios')
 export default class ReportsService {
   static async fetch() {
-    return data
+    const res = await axios.get("data.json")
+    return res.data
   }
 }
