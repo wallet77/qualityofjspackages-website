@@ -34,6 +34,13 @@ Vue.filter('prettyMS', function(value) {
   }
 })
 
+import filesize from 'filesize'
+Vue.filter('filesize', function(value) {
+  if (value) {
+    return filesize(value, { base: 10 })
+  }
+})
+
 import App from './App.vue'
 
 Vue.config.productionTip = false

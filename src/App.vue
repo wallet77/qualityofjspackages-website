@@ -229,4 +229,8 @@ h4{
 img {
     aspect-ratio: attr(width) / attr(height);
 }
+
+.details {
+  font-size: 12px;
+}
 </style>

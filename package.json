@@ -43,6 +43,7 @@
     "axios": "^0.21.1",
     "bootstrap": "4.6.0",
     "dayjs": "1.10.4",
+    "filesize": "^6.1.0",
     "pretty-ms": "7.0.1",
     "vue": "2.6.12",
     "vue-apexcharts": "1.6.0",
