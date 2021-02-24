@@ -47,7 +47,7 @@ export default {
         return {
             optionsUpdates: {
                 title: {
-                    text: 'Up-to-date?',
+                    text: 'Average number of updates',
                     align: 'center',
                 },
                 chart: {
