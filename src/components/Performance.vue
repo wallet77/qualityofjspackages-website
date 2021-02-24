@@ -4,16 +4,14 @@
             <h3>Performance</h3>
             <div class="row mt-4">
                 <MainChart type="bar" :options="optionsDep" :series="seriesDep" :col=6 />
-                <!-- <div class="col-md-6 valueImportant">
-                    <span class="subTitle">Size of dependencies tree</span>
-                    <br />
-                    <span class="valueCritical">~{{ report.depSize.weight.avg.toFixed(2) | filesize }}</span>
-                    <br />
-                    <span class="details">max: </span><span class="details">{{ report.depSize.weight.max.toFixed(0) | filesize}}</span>
-                    <br />
-                    <span class="details">min: </span><span class="details">{{ report.depSize.weight.min.toFixed(0) | filesize }}</span>
-                </div> -->
                 <MainChart type="bar" :options="optionsDepSize" :series="seriesDepSize" :col=6 />
+            </div>
+        </div>
+        <div class="slide">
+            <h3>Performance</h3>
+            <div class="row mt-4">
+                <MainChart type="bar" :options="optionsEntrycount" :series="seriesEntrycount" :col=6 />
+                <MainChart type="bar" :options="optionsSize" :series="seriesSize" :col=6 />
             </div>
         </div>
     </div>
@@ -25,6 +23,10 @@ import MainChart from '@/components/MainChart'
 import {barOptions, mergeObject, clone, colors} from '../variables'
 
 const options = mergeObject(clone(barOptions), {
+    title: {
+        text: 'Number of dependencies',
+        align: 'center',
+    },
     xaxis: {
         categories: ['Direct dependencies', 'Sub dependencies']
     },
@@ -47,7 +49,11 @@ const options = mergeObject(clone(barOptions), {
         }
     }
 })
-const optionsSize = mergeObject(clone(barOptions), {
+const optionsDepSize = mergeObject(clone(barOptions), {
+    title: {
+        text: 'Average weight of dependencies',
+        align: 'center',
+    },
     plotOptions: {
         bar: {
             horizontal: false,
@@ -88,6 +94,45 @@ const optionsSize = mergeObject(clone(barOptions), {
         enabled: false
     }
 })
+const optionsSize = mergeObject(clone(options), {
+    title: {
+        text: 'Project\'s size',
+        align: 'center',
+    },
+    xaxis: {
+        categories: ['Size', 'Unpacked size']
+    },
+    dataLabels: {
+        offsetX: 0,
+        offsetY: 0,
+        textAnchor: 'middle',
+        style: {
+            fontSize: '15px'
+        },
+        formatter: function (val) {
+            return filesize(val, { base: 10 })
+        }
+    },
+})
+const optionsEntrycount = mergeObject(clone(optionsDepSize), {
+    title: {
+        text: 'Number of files',
+        align: 'center',
+    },
+    plotOptions: {
+        bar: {
+            horizontal: false,
+            borderRadius: 6,
+            columnWidth: '45%',
+            distributed: true,
+        }
+    },
+    dataLabels: {
+        formatter: function (val) {
+            return `${Math.round(val)}`
+        }
+    },
+})
 
 export default {
     name: 'dependencies',
@@ -125,13 +170,48 @@ export default {
                     Math.round(this.report.depSize.dependencies.percentiles['90'])
                 ]
             }],
-            optionsDepSize: optionsSize,
+            optionsDepSize: optionsDepSize,
             seriesDepSize: [{
                 data: [
                     this.report.depSize.weight.avg,
                     this.report.depSize.weight.percentiles['50'],
                     this.report.depSize.weight.percentiles['75'],
                     this.report.depSize.weight.percentiles['90']
+                ]
+            }],
+            optionsSize: optionsSize,
+            seriesSize: [{
+                name: 'Average',
+                data: [
+                    this.report.packageSize.size.avg.toFixed(2),
+                    this.report.packageSize.unpackedSize.avg.toFixed(2)
+                ],
+            }, {
+                name: 'Median',
+                data: [
+                    Math.round(this.report.packageSize.size.percentiles['50']),
+                    Math.round(this.report.packageSize.unpackedSize.percentiles['50'])
+                ]
+            }, {
+                name: 'Third quartile',
+                data: [
+                    Math.round(this.report.packageSize.size.percentiles['75']),
+                    Math.round(this.report.packageSize.unpackedSize.percentiles['75'])
+                ]
+            }, {
+                name: '90th percentile',
+                data: [
+                    Math.round(this.report.packageSize.size.percentiles['90']),
+                    Math.round(this.report.packageSize.unpackedSize.percentiles['90'])
+                ]
+            }],
+            optionsEntrycount: optionsEntrycount,
+            seriesEntrycount: [{
+                data: [
+                    this.report.packageSize.entryCount.avg,
+                    this.report.packageSize.entryCount.percentiles['50'],
+                    this.report.packageSize.entryCount.percentiles['75'],
+                    this.report.packageSize.entryCount.percentiles['90']
                 ]
             }],
         }
