@@ -9,39 +9,29 @@
                     <div>
                         Powered by <a href="https://docs.npmjs.com/cli/v6/commands/npm-audit" target="_blank" rel="noopener noreferrer">NPM audit</a>.
                     </div>
-                    <br />
-                    Possible values:
-                    <ul class="features-list">
-                        <li>Critical</li>
-                        <li>High</li>
-                        <li>Moderate</li>
-                        <li>Low</li>
-                    </ul>
+                    <div class="row mt-4">
+                        <div class="col-md-3 valueImportant">
+                            <span class="subTitle">Max Critical</span>
+                            <br />
+                            <span class="valueCritical">{{ report.critical.max }}</span>
+                        </div>
+                        <div class="col-md-3 valueImportant">
+                            <span class="subTitle">Max High</span>
+                            <br />
+                            <span class="valueWarn">{{ report.high.max }}</span>
+                        </div>
+                        <div class="col-md-3 valueImportant">
+                            <span class="subTitle">Max Moderate</span>
+                            <br />
+                            <span class="valueWarn">{{ report.moderate.max }}</span>
+                        </div>
+                        <div class="col-md-3 valueImportant">
+                            <span class="subTitle">Max Low</span>
+                            <br />
+                            <span class="valueInfo">{{ report.low.max }}</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="slide">
-            <h3>Details</h3>
-            <div class="row mt-4" v-bind:key="level" v-for="(metric, level) in report">
-                <div class="col-md-2 valueImportant info align-self-center">
-                    {{level}}
-                </div>
-                <div class="col-md-3 valueImportant info align-self-center">
-                    {{ metric.min }}
-                    <hr />
-                    Min
-                </div>
-                <div class="col-md-3 valueImportant info align-self-center">
-                    {{ metric.max }}
-                    <hr />
-                    Max
-                </div>
-                <div class="col-md-3 valueImportant info align-self-center">
-                    {{ metric.total }}
-                    <hr />
-                    Total packages
-                </div>
-                <div class="col-md-1"></div>
             </div>
         </div>
     </div>
@@ -50,6 +40,13 @@
 <script>
 import MainChart from '@/components/MainChart'
 import {colors} from '../variables'
+
+const customColors = [
+    colors[3],
+    colors[2],
+    colors[6],
+    colors[0]
+]
 export default {
     name: 'security',
     props: {
@@ -79,7 +76,7 @@ export default {
                 grid: {
                     show: false,
                 },
-                colors: colors,
+                colors: customColors,
                 plotOptions: {
                     bar: {
                         borderRadius: 6,
@@ -91,7 +88,7 @@ export default {
                     categories: labels,
                     labels: {
                         style: {
-                            colors: colors,
+                            colors: customColors,
                             fontSize: '20px'
                         }
                     }

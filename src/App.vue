@@ -192,6 +192,9 @@ h4{
 .valueCritical {
   color:#d05a5a;
 }
+.valueInfo {
+  color:#5a62d0;
+}
 .section a, a.visited {
     color:#3599b3;
     text-decoration: underline;
