@@ -1,17 +1,25 @@
 <template>
     <div class="section">
         <div class="slide">
-            <h3>Performance</h3>
+            <h3>Dep. size</h3>
             <div class="row mt-4">
                 <MainChart type="bar" :options="optionsDep" :series="seriesDep" :col=6 />
                 <MainChart type="bar" :options="optionsDepSize" :series="seriesDepSize" :col=6 />
             </div>
         </div>
         <div class="slide">
-            <h3>Performance</h3>
+            <h3>Project's size</h3>
             <div class="row mt-4">
                 <MainChart type="bar" :options="optionsEntrycount" :series="seriesEntrycount" :col=6 />
                 <MainChart type="bar" :options="optionsSize" :series="seriesSize" :col=6 />
+            </div>
+        </div>
+        <div class="slide">
+            <h3>Require time</h3>
+            <div class="row mt-4">
+                <div class="col-md-3"></div>
+                <MainChart type="bar" :options="optionsRequireTime" :series="seriesRequireTime" :col=6 />
+                <div class="col-md-3"></div>
             </div>
         </div>
     </div>
@@ -21,6 +29,7 @@
 import filesize from 'filesize'
 import MainChart from '@/components/MainChart'
 import {barOptions, mergeObject, clone, colors} from '../variables'
+import prettyMs from 'pretty-ms'
 
 const options = mergeObject(clone(barOptions), {
     title: {
@@ -129,7 +138,27 @@ const optionsEntrycount = mergeObject(clone(optionsDepSize), {
     },
     dataLabels: {
         formatter: function (val) {
-            return `${Math.round(val)}`
+            return Math.round(val)
+        }
+    },
+})
+
+const optionsRequireTime = mergeObject(clone(optionsDepSize), {
+    title: {
+        text: 'Time to load module',
+        align: 'center',
+    },
+    plotOptions: {
+        bar: {
+            horizontal: false,
+            borderRadius: 6,
+            columnWidth: '45%',
+            distributed: true,
+        }
+    },
+    dataLabels: {
+        formatter: function (val) {
+            return prettyMs(val / 1000000)
         }
     },
 })
@@ -212,6 +241,15 @@ export default {
                     this.report.packageSize.entryCount.percentiles['50'],
                     this.report.packageSize.entryCount.percentiles['75'],
                     this.report.packageSize.entryCount.percentiles['90']
+                ]
+            }],
+            optionsRequireTime: optionsRequireTime,
+            seriesRequireTime: [{
+                data: [
+                    this.report.requireTime.entrypointTime.avg,
+                    this.report.requireTime.entrypointTime.percentiles['50'],
+                    this.report.requireTime.entrypointTime.percentiles['75'],
+                    this.report.requireTime.entrypointTime.percentiles['90']
                 ]
             }],
         }
