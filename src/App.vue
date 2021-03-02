@@ -60,7 +60,7 @@
           navigation: true,
           navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Dependencies", "Performance", "Security", "NPMS", 'Contact'],
           anchors: ['intro', 'quality', 'copypaste', 'dependencies', 'performance', 'security', 'npms', 'contact'],
-          sectionsColor: ['#117540', '#343E59', '#213b4a', '#232131', '#381535', '#34354e', '#4e3434', '#335251']
+          sectionsColor: ['#0b3c1b', '#343E59', '#213b4a', '#232131', '#381535', '#34354e', '#4e3434', '#335251']
         },
         qualscanData: null
       }
@@ -193,10 +193,10 @@ h4{
   color:#d05a5a;
 }
 .valueInfo {
-  color:#5a62d0;
+  color:#008ffb;
 }
 .section a, a.visited {
-    color:#3599b3;
+    color:#4ac9ea;
     text-decoration: underline;
 }
 .explanation {
