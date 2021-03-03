@@ -1,7 +1,7 @@
 
 <template>
     <div class="section">
-        <h3>Contact</h3>
+        <h3>Contributing</h3>
         <div class="row mt-4">
             <div class="col-md-1">
             </div>
@@ -12,8 +12,55 @@
                 <ul class="features-list">
                     <li><a href="https://github.com/wallet77/npm-packages-quality-analysis" target="_blank" rel="noopener noreferrer">Packages crawler</a></li>
                     <li><a href="https://github.com/wallet77/stateofjsdep-api" target="_blank" rel="noopener noreferrer">Report generator</a></li>
-                    <li><a href="https://github.com/wallet77/stateofjsdep-ui" target="_blank" rel="noopener noreferrer">Website</a></li>
+                    <li><a href="https://github.com/wallet77/stateofjsdep-ui" target="_blank" rel="noopener noreferrer">State Of JS Packages website</a></li>
                 </ul>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10 explanation">
+                <div class="row mt-4">
+                    This project is possible because of them:
+                </div>
+                <div class="dependencies row mt-4">
+                    <td class="align-self-center col-md-2">
+                        <a href="" target="_blank" rel="noopener noreferrer">
+                            <img :src="`${publicPath}logos/jscpd.png`" width="175" height="175" alt="jscpd" />
+                            <div></div>
+                        </a>
+                    </td>
+                    <td class="align-self-center col-md-2">
+                        <a href="" target="_blank" rel="noopener noreferrer">
+                            <img :src="`${publicPath}logos/scaphandre.svg`" width="100" height="100" alt="scaphandre"/>
+                            <div>Scaphandre</div>
+                        </a>
+                    </td>
+                    <td class="align-self-center col-md-2">
+                        <a href="" target="_blank" rel="noopener noreferrer">
+                            <img :src="`${publicPath}logos/qualscan.png`" width="100" height="100" alt="qualscan" />
+                            <div>Qualscan</div>
+                        </a>
+                    </td>
+                    <td class="align-self-center col-md-2">
+                        <a href="" target="_blank" rel="noopener noreferrer">
+                            <font-awesome-icon :icon="['fab', 'npm']" size="4x" />
+                        </a>
+                    </td>
+                    <td class="align-self-center col-md-2">
+                        <a href="" target="_blank" rel="noopener noreferrer">
+                            <img :src="`${publicPath}logos/npms.png`" width="100" height="100" alt="npms" />
+                            <div></div>
+                        </a>
+                    </td>
+                    <td class="align-self-center col-md-2">
+                        <a href="" target="_blank" rel="noopener noreferrer">
+                            <font-awesome-icon :icon="['fab', 'github-alt']" size="4x" />
+                        </a>
+                    </td>
+                </div>
             </div>
             <div class="col-md-1">
             </div>
@@ -23,7 +70,7 @@
 
 <script>
 export default {
-    name: 'intro',
+    name: 'contributing',
     props: {
         date: Date,
         duration: Number
@@ -35,3 +82,12 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.dependencies a {
+    display: block;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+}
+</style>

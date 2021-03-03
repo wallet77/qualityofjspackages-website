@@ -9,7 +9,7 @@
             <li data-menuanchor="performance"><a href="#performance">Performance</a></li>
             <li data-menuanchor="security"><a href="#security">Security</a></li>
             <li data-menuanchor="npms"><a href="#npms">npms.io</a></li>
-            <li data-menuanchor="contact"><a href="#contact">Contact</a></li>
+            <li data-menuanchor="contributing"><a href="#contributing">Contributing</a></li>
         </ul>
         <full-page :options="options" id="fullpage" v-if="loaded">
             <Intro :date=date :duration=duration />
@@ -58,8 +58,8 @@
           autoScrolling: true,
           menu: '#menu',
           navigation: true,
-          navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Dependencies", "Performance", "Security", "NPMS", 'Contact'],
-          anchors: ['intro', 'quality', 'copypaste', 'dependencies', 'performance', 'security', 'npms', 'contact'],
+          navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Dependencies", "Performance", "Security", "NPMS", 'Contributing'],
+          anchors: ['intro', 'quality', 'copypaste', 'dependencies', 'performance', 'security', 'npms', 'contributing'],
           sectionsColor: ['#0b3c1b', '#343E59', '#213b4a', '#232131', '#381535', '#34354e', '#4e3434', '#335251']
         },
         qualscanData: null
