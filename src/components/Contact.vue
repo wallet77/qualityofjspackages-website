@@ -10,7 +10,7 @@
                     If you see any error or if you just want to participate <font-awesome-icon :icon="['far', 'smile-wink']" />, feel free to check the project's <font-awesome-icon :icon="['fab', 'github-alt']" /> repositories:
                 </div>
                 <ul class="features-list">
-                    <li><a href="https://github.com/wallet77/npm-packages-quality-analysis" target="_blank" rel="noopener noreferrer">Packages crawler</a></li>
+                    <li><a href="https://github.com/wallet77/qualityofjspackages-crawler" target="_blank" rel="noopener noreferrer">Packages crawler</a></li>
                     <li><a href="https://github.com/wallet77/qualityofjspackages-data-generator" target="_blank" rel="noopener noreferrer">Report generator</a></li>
                     <li><a href="https://github.com/wallet77/qualityofjspackages-website" target="_blank" rel="noopener noreferrer">Quality of JS packages website</a></li>
                 </ul>
