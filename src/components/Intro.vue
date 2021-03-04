@@ -7,7 +7,7 @@
                 <img :src="`${publicPath}logo.png`" width="200" height="200" alt="logo">
             </div>
             <div class="col-md-4 align-self-center">
-                <h4>State Of JS Packages</h4>
+                <h4>Quality of JS packages</h4>
             </div>
             <div class="col-md-7 explanation">
                 <div class="align-middle">

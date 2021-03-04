@@ -1,4 +1,4 @@
-# stateofjsdep-ui
+# Quality of JS packages website
 
 ## Project setup
 ```
