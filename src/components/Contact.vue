@@ -12,7 +12,7 @@
                 <ul class="features-list">
                     <li><a href="https://github.com/wallet77/npm-packages-quality-analysis" target="_blank" rel="noopener noreferrer">Packages crawler</a></li>
                     <li><a href="https://github.com/wallet77/stateofjsdep-api" target="_blank" rel="noopener noreferrer">Report generator</a></li>
-                    <li><a href="https://github.com/wallet77/stateofjsdep-ui" target="_blank" rel="noopener noreferrer">Quality of JS packages website</a></li>
+                    <li><a href="https://github.com/wallet77/qualityofjspackages-website" target="_blank" rel="noopener noreferrer">Quality of JS packages website</a></li>
                 </ul>
             </div>
             <div class="col-md-1">
