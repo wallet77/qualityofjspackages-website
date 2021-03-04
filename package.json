@@ -1,5 +1,5 @@
 {
-  "name": "qualityofjspackages",
+  "name": "qualityofjspackages-website",
   "version": "0.1.0",
   "private": true,
   "author": {
@@ -28,7 +28,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/wallet77/stateofjsdep-ui"
+    "url": "https://github.com/wallet77/qualityofjspackages-website"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
