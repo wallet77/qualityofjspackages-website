@@ -1,0 +1,24 @@
+# workflow to deploy the website
+
+name: Deploy
+
+on:
+  push:
+    tags:        
+      - v*
+
+jobs:
+  gh-pages-deploy:
+    name: Deploying to Github Pages
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+          with:
+            node-version: '14'
+        - name: Install packages
+          run: npm i
+        - name: Set Creds
+          run: git config user.name "wallet77" && git config user.email "wallet77@gmail.com"
+        - name: Deploy
+          run: npm run deploy
