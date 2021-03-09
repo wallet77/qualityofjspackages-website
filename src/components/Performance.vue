@@ -1,14 +1,14 @@
 <template>
     <div class="section">
         <div class="slide">
-            <h3>Dep. size</h3>
+            <h3>Dependencies tree's size &amp; weight</h3>
             <div class="row mt-4">
                 <MainChart type="bar" :options="optionsDep" :series="seriesDep" :col=6 />
                 <MainChart type="bar" :options="optionsDepSize" :series="seriesDepSize" :col=6 />
             </div>
         </div>
         <div class="slide">
-            <h3>Project's size</h3>
+            <h3>Project's size &amp; weight</h3>
             <div class="row mt-4">
                 <MainChart type="bar" :options="optionsEntrycount" :series="seriesEntrycount" :col=6 />
                 <MainChart type="bar" :options="optionsSize" :series="seriesSize" :col=6 />

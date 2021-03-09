@@ -2,7 +2,7 @@
 <template>
     <div class="section">
         <div class="slide">
-            <h3>Overall quality</h3>
+            <h3>Javascript packages overall quality</h3>
             <div class="row mt-4">
                 <MainChart type="radialBar" :options="options" :series="series" />
                 <div class="col-md-7 align-self-center explanation">
@@ -16,13 +16,13 @@
                         <li>Number of dependencies</li>
                         <li>Weight of all dependencies</li>
                         <li>Percentage of code duplication</li>
-                        <li>And more</li>
+                        <li>And more (<a href="https://www.npmjs.com/package/qualscan#purpose" target="_blank" rel="noopener noreferrer">see the full list</a>)</li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="slide">
-            <h3>Percentiles</h3>
+            <h3>JS packages quality percentiles</h3>
             <div class="row mt-4">
                 <MainChart type="radialBar" :options="optionsDetails" :series="seriesDetails" />
                 <div class="col-md-2 valueImportant info align-self-center">
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="slide">
-            <h3>Details</h3>
+            <h3>Details per category</h3>
             <div class="row mt-4">
                 <div class="col-md-3"></div>
                 <MainChart type="bar" :options="optionsProgress" :series="seriesProgress" :col=6 />

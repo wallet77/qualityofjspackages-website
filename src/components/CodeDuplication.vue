@@ -2,14 +2,11 @@
 <template>
     <div class="section">
         <div class="slide">
-            <h3>Code duplication</h3>
+            <h3>Code duplication decreases your code quality</h3>
             <div class="row mt-4">
+                <div class="col-md-2"></div>
                 <MainChart type="bar" :options="optionsCD" :series="seriesCD" />
-                <div class="col-md-7 align-self-center explanation">
-                    <div>
-                        Code duplication decreases your code quality.
-                    </div>
-                    <br />
+                <div class="col-md-3 align-self-center explanation">
                     Possible impact:
                     <ul class="features-list">
                         <li>Decrease maintainability</li>
@@ -18,10 +15,11 @@
                         <li>Increase code base size</li>
                     </ul>
                 </div>
+                <div class="col-md-2"></div>
             </div>
         </div>
          <div class="slide">
-            <h3>Details</h3>
+            <h3>Code duplication percentiles</h3>
             <div class="row mt-4">
                 <div class="col-md-5">
                     <div class="mt-4">

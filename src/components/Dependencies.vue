@@ -2,7 +2,7 @@
 <template>
     <div class="section">
         <div class="slide">
-            <h3>Dependencies</h3>
+            <h3>Keep dependencies up to date</h3>
             <div class="row mt-4">
                 <MainChart type="bar" :options="optionsUpdates" :series="seriesUpdates" />
                 <div class="col-md-7 align-self-center">

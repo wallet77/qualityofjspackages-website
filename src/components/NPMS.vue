@@ -12,10 +12,9 @@
                     <br />
                     Here is an overview of what is taken into account:
                     <ul class="features-list">
-                        <li>Final score</li>
-                        <li>Quality</li>
-                        <li>Maintenance</li>
-                        <li>Popularity</li>
+                        <li>Quality <span class="details">(Has linter?, Has readme?, Has tests? ...)</span></li>
+                        <li>Maintenance <span class="details">(Commit frequency, Release frequency, ...)</span></li>
+                        <li>Popularity <span class="details">(Number of downloads, Number of stars, ...)</span></li>
                     </ul>
                 </div>
             </div>

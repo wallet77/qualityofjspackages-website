@@ -2,7 +2,7 @@
 <template>
     <div class="section">
         <div class="slide">
-            <h3>Security</h3>
+            <h3>JS modules security vulnerabilities</h3>
             <div class="row mt-4">
                 <MainChart type="bar" :options="options" :series="series" />
                 <div class="col-md-7 align-self-center explanation">

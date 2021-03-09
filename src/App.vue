@@ -164,7 +164,7 @@ body{font-family:arial,helvetica; min-width: 100v; min-height: 100vh; }
 
 .section{position:relative; color: #fff;}
 
-h3{font-size:5em;text-align:center;color:#fff;font-weight:700}
+h3{font-size:3em;text-align:center;color:#fff;font-weight:700}
 h4{
     font-size: 3em;
     text-align: center;
