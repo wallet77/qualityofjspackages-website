@@ -8,6 +8,7 @@
             <li data-menuanchor="dependencies"><a href="#dependencies">Dependencies</a></li>
             <li data-menuanchor="performance"><a href="#performance">Performance</a></li>
             <li data-menuanchor="security"><a href="#security">Security</a></li>
+            <li data-menuanchor="consumption"><a href="#consumption">Consumption</a></li>
             <li data-menuanchor="npms"><a href="#npms">npms.io</a></li>
             <li data-menuanchor="contributing"><a href="#contributing">Contributing</a></li>
         </ul>
@@ -18,6 +19,7 @@
             <Dependencies :report=dep v-if="dep" />
             <Performance :report=perf v-if="perf" />
             <Security :report=security v-if="security" />
+            <Consumption :report=consumption v-if="consumption" />
             <NPMS :report=npms v-if="npms" />
             <Contact />
         </full-page>
@@ -35,6 +37,7 @@
   import Performance from '@/components/Performance'
   import Security from '@/components/Security'
   import CodeDuplication from '@/components/CodeDuplication'
+  import Consumption from '@/components/Consumption'
   export default {
     name: 'app',
     components: {
@@ -46,7 +49,8 @@
       CodeDuplication,
       Dependencies,
       Performance,
-      Loader
+      Loader,
+      Consumption
     },
     data () {
       return {
@@ -58,9 +62,9 @@
           autoScrolling: true,
           menu: '#menu',
           navigation: true,
-          navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Dependencies", "Performance", "Security", "NPMS", 'Contributing'],
-          anchors: ['intro', 'quality', 'copypaste', 'dependencies', 'performance', 'security', 'npms', 'contributing'],
-          sectionsColor: ['#0b3c1b', '#343E59', '#213b4a', '#232131', '#381535', '#34354e', '#4e3434', '#000000']
+          navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Dependencies", "Performance", "Security", "Consumption", "NPMS", 'Contributing'],
+          anchors: ['intro', 'quality', 'copypaste', 'dependencies', 'performance', 'security', 'consumption', 'npms', 'contributing'],
+          sectionsColor: ['#0b3c1b', '#343E59', '#213b4a', '#232131', '#381535', '#34354e', '#1c401d', '#4e3434', '#000000']
         },
         qualscanData: null
       }
@@ -89,6 +93,7 @@
         packageSize: data.metrics['Project\'s size'],
         requireTime: data.metrics['Require time']
       }
+      this.consumption = data.metrics.consumption
       this.date = new Date(data.time)
       this.duration = data.duration / 1000000
       this.loaded = true

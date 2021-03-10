@@ -18,7 +18,7 @@ export const radialOptions = {
             size: undefined,
             inverseOrder: true,
             hollow: {
-                margin: 5,
+                margin: 0,
                 size: '48%',
                 background: 'transparent',
             },
