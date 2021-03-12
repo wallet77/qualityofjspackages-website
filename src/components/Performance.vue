@@ -28,7 +28,7 @@
 <script>
 import filesize from 'filesize'
 import MainChart from '@/components/MainChart'
-import {barOptions, mergeObject, clone, colors} from '../variables'
+import {barOptions, barPercentilesOptions, mergeObject, clone} from '../variables'
 import prettyMs from 'pretty-ms'
 
 const options = mergeObject(clone(barOptions), {
@@ -58,49 +58,15 @@ const options = mergeObject(clone(barOptions), {
         }
     }
 })
-const optionsDepSize = mergeObject(clone(barOptions), {
+const optionsDepSize = mergeObject(clone(barPercentilesOptions), {
     title: {
         text: 'Average weight of dependencies',
         align: 'center',
     },
-    plotOptions: {
-        bar: {
-            horizontal: false,
-            borderRadius: 6,
-            columnWidth: '45%',
-            distributed: true,
-        }
-    },
-    colors: colors,
-    yaxis: {
-        show: false,
-    },
-    labels: ['Average', 'Median', 'Third quartile', '90th'],
-    xaxis: {
-        categories: ['Average', 'Median', 'Third quartile', '90th'],
-        labels: {
-            style: {
-                colors: colors,
-                fontSize: '20px'
-            }
-        }
-    },
     dataLabels: {
-        offsetX: 0,
-        offsetY: 0,
-        textAnchor: 'middle',
-        style: {
-            fontSize: '15px'
-        },
         formatter: function (val) {
             return filesize(val, { base: 10 })
         }
-    },
-    legend: {
-        show: false
-    },
-    tooltip: {
-        enabled: false
     }
 })
 const optionsSize = mergeObject(clone(options), {

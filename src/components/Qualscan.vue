@@ -182,7 +182,21 @@ export default {
                 },
                 stroke: {
                     lineCap: 'round'
-                }
+                },
+                responsive: [{
+                    breakpoint: 600,
+                    options: {
+                        plotOptions: {
+                            radialBar: {
+                                dataLabels: {
+                                    value: {
+                                        fontSize: '4em'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }]
             },
             series: [Math.round(this.report.qualscan.avg)],
             optionsDetails: radialOptions,

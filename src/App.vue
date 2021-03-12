@@ -1,16 +1,17 @@
 <template>
     <div>
         <loader v-if="!loaded"/>
-        <ul id="menu">
-            <li data-menuanchor="intro" class="active"><a href="#intro">Intro</a></li>
-            <li data-menuanchor="quality"><a href="#quality">Overview</a></li>
-            <li data-menuanchor="copypaste"><a href="#copypaste">Copy/Paste</a></li>
-            <li data-menuanchor="dependencies"><a href="#dependencies">Dependencies</a></li>
-            <li data-menuanchor="performance"><a href="#performance">Performance</a></li>
-            <li data-menuanchor="security"><a href="#security">Security</a></li>
-            <li data-menuanchor="consumption"><a href="#consumption">Consumption</a></li>
-            <li data-menuanchor="npms"><a href="#npms">npms.io</a></li>
-            <li data-menuanchor="contributing"><a href="#contributing">Contributing</a></li>
+        <ul id="menu" class="topnav">
+            <li v-on:click="switchMode" data-menuanchor="intro" class="active"><a href="#intro">Intro</a></li>
+            <li v-on:click="switchMode" data-menuanchor="quality"><a href="#quality">Overview</a></li>
+            <li v-on:click="switchMode" data-menuanchor="copypaste"><a href="#copypaste">Copy/Paste</a></li>
+            <li v-on:click="switchMode" data-menuanchor="dependencies"><a href="#dependencies">Dependencies</a></li>
+            <li v-on:click="switchMode" data-menuanchor="performance"><a href="#performance">Performance</a></li>
+            <li v-on:click="switchMode" data-menuanchor="security"><a href="#security">Security</a></li>
+            <li v-on:click="switchMode" data-menuanchor="consumption"><a href="#consumption">Consumption</a></li>
+            <li v-on:click="switchMode" data-menuanchor="npms"><a href="#npms">npms.io</a></li>
+            <li v-on:click="switchMode" data-menuanchor="contributing"><a href="#contributing">Contributing</a></li>
+            <li v-on:click="switchMode" class="icon"><a href="javascript:void(0);">&#9776;</a></li>
         </ul>
         <full-page :options="options" id="fullpage" v-if="loaded">
             <Intro :date=date :duration=duration />
@@ -67,6 +68,16 @@
           sectionsColor: ['#0b3c1b', '#343E59', '#213b4a', '#232131', '#381535', '#34354e', '#1c401d', '#4e3434', '#000000']
         },
         qualscanData: null
+      }
+    },
+    methods: {
+      switchMode: () => {
+        const x = document.getElementById("menu");
+        if (x.className === "topnav") {
+          x.className += " responsive"
+        } else {
+          x.className = "topnav"
+        }
       }
     },
     async created() {
@@ -180,11 +191,42 @@ h4{
   font-size: 20px;
 }
 
-#menu-line{position:absolute;bottom:-4px;left:0;width:159px;height:2px;background:#fff}
-#menu{position:fixed;top:20px;right:20px;z-index:70;-webkit-font-smoothing:antialiased;-moz-font-smoothing:antialiased;letter-spacing:1px;font-size:1.1em}
-#menu li{display:inline-block;margin:10px 0;position:relative}
-#menu a{color:#fff;padding:0 1.1em 1.1em 1.1em}
-#menu li.active a:after{content:'';margin:0 1.1em 0 1.1em;height:2px;background:#fff;display:block;position:absolute;bottom:-6px;left:0;right:0;display:block}
+.topnav{position:fixed;top:20px;right:20px;z-index:70;-webkit-font-smoothing:antialiased;-moz-font-smoothing:antialiased;letter-spacing:1px;font-size:1.1em}
+.topnav li{display:inline-block;margin:10px 0;position:relative}
+.topnav a{color:#fff;padding:0 1.1em 1.1em 1.1em}
+.topnav li.active a:after{content:'';margin:0 1.1em 0 1.1em;height:2px;background:#fff;display:block;position:absolute;bottom:-6px;left:0;right:0;display:block}
+
+.topnav .icon {display: none;}
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav li:not(.active) {
+    display: none;
+  }
+  .topnav li.icon {
+    float: right;
+    display: block;
+  }
+
+  .topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive li {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  h3 {
+    margin-top: 45px;
+  }
+
+  .topnav {
+    right: 0;
+    top: 0;
+  }
+}
 
 .valueImportant {
     font-size: 2em;
@@ -227,6 +269,10 @@ h4{
 }
 .info {
   padding: 10px;
+  text-align: center;
+}
+
+.alignCenter {
   text-align: center;
 }
 

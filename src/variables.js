@@ -9,6 +9,24 @@ export const colors = [
     '#D10CE8'
 ];
 
+export const mergeObject = (target, source) => {
+    // Iterate through `source` properties and if an `Object` set property to merge of `target` and `source` properties
+    for (const key of Object.keys(source)) {
+        if (source[key] instanceof Object) {
+            if(!target[key]) target[key] = {}
+            Object.assign(source[key], mergeObject(target[key], source[key]))
+        }
+    }
+
+    // Join `target` and modified `source`
+    Object.assign(target || {}, source)
+    return target
+}
+
+export const clone = (a) => {
+    return JSON.parse(JSON.stringify(a))
+}
+
 export const radialOptions = {
     chart: {
         foreColor: '#ccc',
@@ -54,7 +72,19 @@ export const radialOptions = {
     },
     stroke: {
         lineCap: 'round'
-    }
+    },
+    responsive: [{
+        breakpoint: 600,
+        options: {
+            legend: {
+                show: true,
+                floating: false,
+                position: 'bottom',
+                offsetX: 0,
+                offsetY: 0,
+            }
+        }
+    }]
 };
 
 export const barOptions = {
@@ -118,20 +148,48 @@ export const barOptions = {
     }
 };
 
-export const mergeObject = (target, source) => {
-    // Iterate through `source` properties and if an `Object` set property to merge of `target` and `source` properties
-    for (const key of Object.keys(source)) {
-        if (source[key] instanceof Object) {
-            if(!target[key]) target[key] = {}
-            Object.assign(source[key], mergeObject(target[key], source[key]))
+export const barPercentilesOptions = mergeObject(clone(barOptions), {
+    title: {
+        text: false,
+        align: 'center',
+    },
+    plotOptions: {
+        bar: {
+            horizontal: false,
+            borderRadius: 6,
+            columnWidth: '45%',
+            distributed: true,
         }
+    },
+    colors: colors,
+    yaxis: {
+        show: false,
+    },
+    labels: ['Average', 'Median', 'Third quartile', '90th'],
+    xaxis: {
+        categories: ['Average', 'Median', 'Third quartile', '90th'],
+        labels: {
+            style: {
+                colors: colors,
+                fontSize: '20px'
+            }
+        }
+    },
+    dataLabels: {
+        offsetX: 0,
+        offsetY: 0,
+        textAnchor: 'middle',
+        style: {
+            fontSize: '15px'
+        },
+        formatter: function (val) {
+            return val
+        }
+    },
+    legend: {
+        show: false
+    },
+    tooltip: {
+        enabled: false
     }
-
-    // Join `target` and modified `source`
-    Object.assign(target || {}, source)
-    return target
-}
-
-export const clone = (a) => {
-    return JSON.parse(JSON.stringify(a))
- }
+})

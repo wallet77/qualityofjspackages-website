@@ -18,7 +18,7 @@
 
 <script>
 import MainChart from '@/components/MainChart'
-import {colors, mergeObject, barOptions, clone, radialOptions} from '../variables'
+import {mergeObject, barPercentilesOptions, clone, radialOptions} from '../variables'
 
 const getReadable = (size, suffix='W', precision=2, decimal=2) => {
     let i = precision;
@@ -31,49 +31,15 @@ const getReadable = (size, suffix='W', precision=2, decimal=2) => {
     return `${Math.max(size, 0.1).toFixed(decimal)} ${byteUnits[i]}${suffix}`
 }
 
-const optionsConsumption = mergeObject(clone(barOptions), {
+const optionsConsumption = mergeObject(clone(barPercentilesOptions), {
     title: {
         text: 'Consumption during dep. installation',
         align: 'center',
     },
-    plotOptions: {
-        bar: {
-            horizontal: false,
-            borderRadius: 6,
-            columnWidth: '45%',
-            distributed: true,
-        }
-    },
-    colors: colors,
-    yaxis: {
-        show: false,
-    },
-    labels: ['Average', 'Median', 'Third quartile', '90th'],
-    xaxis: {
-        categories: ['Average', 'Median', 'Third quartile', '90th'],
-        labels: {
-            style: {
-                colors: colors,
-                fontSize: '20px'
-            }
-        }
-    },
     dataLabels: {
-        offsetX: 0,
-        offsetY: 0,
-        textAnchor: 'middle',
-        style: {
-            fontSize: '15px'
-        },
         formatter: function (val) {
             return getReadable(val)
         }
-    },
-    legend: {
-        show: false
-    },
-    tooltip: {
-        enabled: false
     }
 })
 
