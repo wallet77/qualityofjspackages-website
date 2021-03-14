@@ -56,7 +56,27 @@ const options = mergeObject(clone(barOptions), {
         formatter: function (val) {
             return val
         }
-    }
+    },
+    responsive: [{
+        breakpoint: 600,
+        options: {
+            legend: {
+                show: true,
+                floating: false,
+                position: 'bottom',
+                offsetX: 0,
+                offsetY: 0,
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                }
+            },
+            yaxis: {
+                show: false
+            }
+        }
+    }]
 })
 const optionsDepSize = mergeObject(clone(barPercentilesOptions), {
     title: {
