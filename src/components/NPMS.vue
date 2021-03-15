@@ -51,7 +51,6 @@ export default {
                 colors: colors,
                 plotOptions: {
                     bar: {
-                        borderRadius: 6,
                         columnWidth: '45%',
                         distributed: true,
                     }

@@ -117,7 +117,6 @@ const optionsEntrycount = mergeObject(clone(optionsDepSize), {
     plotOptions: {
         bar: {
             horizontal: false,
-            borderRadius: 6,
             columnWidth: '45%',
             distributed: true,
         }
@@ -137,7 +136,6 @@ const optionsRequireTime = mergeObject(clone(optionsDepSize), {
     plotOptions: {
         bar: {
             horizontal: false,
-            borderRadius: 6,
             columnWidth: '45%',
             distributed: true,
         }

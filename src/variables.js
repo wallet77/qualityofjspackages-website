@@ -156,9 +156,8 @@ export const barPercentilesOptions = mergeObject(clone(barOptions), {
     plotOptions: {
         bar: {
             horizontal: false,
-            borderRadius: 6,
             columnWidth: '45%',
-            distributed: true,
+            distributed: true
         }
     },
     colors: colors,
