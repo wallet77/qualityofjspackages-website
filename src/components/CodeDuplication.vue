@@ -23,51 +23,39 @@
             <div class="row mt-4">
                 <div class="col-md-5">
                     <div class="mt-4">
-                        <apexchart width="100%" type="bar" :options="optionsCDDetails" :series="seriesCDDetails"></apexchart>
+                        <apexchart width="100%" type="bar" :options="optionsCDDetails" :series="seriesCDDetails" :col="7"></apexchart>
                     </div>
                 </div>
-                <div class="col-md-7 align-self-center">
+                <div class="col-md-5 align-self-center">
                     <div class="row mt-4">
-                        <div class="col-md-2 valueImportant info align-self-center">
+                        <div class="col-md-4 valueImportant info align-self-center">
                             Lines
                         </div>
-                        <div class="col-md-3 valueImportant info align-self-center">
-                            {{ Math.round(report.percentage.min) }}%
-                            <hr />
-                            Min
+                        <div class="col-md-4 valueImportant info align-self-center">
+                            <span class="subTitle text-center">Min</span>
+                            <br />
+                            <span class="valueSucceed">~{{ Math.round(report.percentage.min) }}%</span>
                         </div>
-                        <div class="col-md-3 valueImportant info align-self-center">
-                            {{ Math.round(report.percentage.max) }}%
-                            <hr />
-                            Max
+                        <div class="col-md-4 valueImportant info align-self-center">
+                            <span class="subTitle text-center">Max</span>
+                            <br />
+                            <span class="valueCritical">~{{ Math.round(report.percentage.max) }}%</span>
                         </div>
-                        <div class="col-md-3 valueImportant info align-self-center">
-                            {{ report.percentage.total }}
-                            <hr />
-                            Total packages
-                        </div>
-                        <div class="col-md-1"></div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-md-2 valueImportant info align-self-center">
+                        <div class="col-md-4 valueImportant info align-self-center">
                             Tokens
                         </div>
-                        <div class="col-md-3 valueImportant info align-self-center">
-                            {{ Math.round(report.percentageTokens.min) }}%
-                            <hr />
-                            Min
+                        <div class="col-md-4 valueImportant info align-self-center">
+                            <span class="subTitle text-center">Min</span>
+                            <br />
+                            <span class="valueSucceed">~{{ Math.round(report.percentageTokens.min) }}%</span>
                         </div>
-                        <div class="col-md-3 valueImportant info align-self-center">
-                            {{ Math.round(report.percentageTokens.max) }}%
-                            <hr />
-                            Max
+                        <div class="col-md-4 valueImportant info align-self-center">
+                            <span class="subTitle text-center">Max</span>
+                            <br />
+                            <span class="valueCritical">~{{ Math.round(report.percentageTokens.max) }}%</span>
                         </div>
-                        <div class="col-md-3 valueImportant info align-self-center">
-                            {{ report.percentageTokens.total }}
-                            <hr />
-                            Total packages
-                        </div>
-                        <div class="col-md-1"></div>
                     </div>
                 </div>
             </div>

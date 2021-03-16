@@ -145,7 +145,19 @@ export const barOptions = {
     },
     tooltip: {
         theme: 'dark'
-    }
+    },
+    responsive: [{
+        breakpoint: 600,
+        options: {
+            legend: {
+                show: true,
+                floating: false,
+                position: 'bottom',
+                offsetX: 0,
+                offsetY: 0,
+            }
+        }
+    }]
 };
 
 export const barPercentilesOptions = mergeObject(clone(barOptions), {
