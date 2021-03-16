@@ -88,6 +88,5 @@ export default {
     display: block;
     text-align: center;
     height: 200px;
-    width: 200px;
 }
 </style>
