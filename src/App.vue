@@ -207,6 +207,10 @@ h4{
     display: block;
   }
 
+  .topnav.responsive {
+    background-color: #0d30ad;
+  }
+
   .topnav.responsive li.icon {
     position: absolute;
     right: 0;
