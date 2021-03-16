@@ -250,6 +250,9 @@ h4{
 .valueInfo {
   color:#008ffb;
 }
+.valueSucceed {
+  color:#2c9c28;
+}
 .section a, a.visited {
     color:#4ac9ea;
     text-decoration: underline;

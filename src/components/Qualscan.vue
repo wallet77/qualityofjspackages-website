@@ -24,22 +24,19 @@
         <div class="slide">
             <h3>JS packages quality percentiles</h3>
             <div class="row mt-4">
-                <MainChart type="radialBar" :options="optionsDetails" :series="seriesDetails" />
+                <div class="col-md-1"></div>
+                <MainChart type="radialBar" :options="optionsDetails" :series="seriesDetails" :col="6" /> 
                 <div class="col-md-2 valueImportant info align-self-center">
-                    {{ report.qualscan.min }}%
-                    <hr />
-                    Min
+                    <span class="subTitle text-center">Min</span>
+                    <br />
+                    <span class="valueCritical">~{{ report.qualscan.min }}%</span>
                 </div>
                 <div class="col-md-2 valueImportant info align-self-center">
-                    {{ report.qualscan.max }}%
-                    <hr />
-                    Max
+                     <span class="subTitle text-center">Max</span>
+                    <br />
+                    <span class="valueSucceed">~{{ report.qualscan.max }}%</span>
                 </div>
-                <div class="col-md-2 valueImportant info align-self-center">
-                    {{ report.qualscan.total }}
-                    <hr />
-                    Total packages
-                </div>
+                <div class="col-md-1"></div>
             </div>
         </div>
         <div class="slide">
