@@ -5,13 +5,14 @@ import 'bootstrap/dist/css/bootstrap-grid.min.css'
 import VueFullPage from 'vue-fullpage.js'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSmileWink } from '@fortawesome/free-regular-svg-icons'
+import { faSmileWink, faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
 import { faGithubAlt, faNpm } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(faSmileWink)
 library.add(faGithubAlt)
 library.add(faNpm)
+library.add(faQuestionCircle)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
