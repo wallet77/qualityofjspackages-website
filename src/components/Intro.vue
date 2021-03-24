@@ -13,7 +13,7 @@
                 <div class="align-middle">
                     This website is an open-source project which aims to analyze Javascript packages.
                     <br/><br />
-                    All the charts are based on a report automatically generated after the analysis of the top 1000 <a href="https://www.npmjs.com/browse/depended" target="_blank" rel="noopener noreferrer">most depended packages <font-awesome-icon :icon="['fab', 'npm']" /></a>.
+                    All the charts are based on a report automatically generated after the analysis of the top <a href="https://www.npmjs.com/browse/depended" target="_blank" rel="noopener noreferrer">most depended packages <font-awesome-icon :icon="['fab', 'npm']" /></a>.
                     <br /><br />
                     <u>Last generated report:</u> <b>{{ date | formatDate }} in {{ duration | prettyMS }}</b>
                     <details>
