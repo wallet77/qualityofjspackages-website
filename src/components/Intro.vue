@@ -34,6 +34,9 @@
                             </div>
                             <div class="details-modal-content">
                                 <p>
+                                    Total packages scanned: {{details.nbPackages}}
+                                </p>
+                                <p>
                                     Machine details:
                                     <table>
                                         <tbody>

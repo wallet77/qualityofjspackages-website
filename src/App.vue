@@ -110,7 +110,8 @@
       this.loaded = true
       this.details = {
         skippedPackages: Object.keys(data.skippedPackages),
-        machine: data.machine
+        machine: data.machine,
+        nbPackages: data.nbPackages
       }
     }
   }
