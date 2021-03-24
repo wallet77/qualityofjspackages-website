@@ -203,7 +203,7 @@ h4{
 
 .topnav .icon {display: none;}
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1190px) {
   .topnav li:not(.active) {
     display: none;
   }
