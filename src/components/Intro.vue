@@ -109,13 +109,10 @@ export default {
   color: black;
   border-radius: 0.5em;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  left: 25%;
-  max-width: 90%;
+  left: 5vw;
   pointer-events: none;
   position: absolute;
-  top: 25%;
-  transform: translate(-50%, -50%);
-  width: 30em;
+  top: 0;
   text-align: left;
   max-height: 90vh;
   display: flex;
@@ -125,12 +122,12 @@ export default {
   align-items: center;
   color: #111827;
   display: flex;
-  height: 4.5em;
+  height: 3em;
   justify-content: center;
   position: absolute;
   right: 0;
   top: 0;
-  width: 4.5em;
+  width: 2em;
 }
 .details-modal .details-modal-close svg {
   display: block;
@@ -138,10 +135,10 @@ export default {
 }
 .details-modal .details-modal-title {
   color: #111827;
-  padding: 1.5em 2em;
+  padding: 1em 1em;
   pointer-events: all;
   position: relative;
-  width: calc(100% - 4.5em);
+  width: calc(100% - 2em);
 }
 .details-modal .details-modal-title h1 {
   font-size: 1.25rem;
@@ -150,7 +147,7 @@ export default {
 }
 .details-modal .details-modal-content {
   border-top: 1px solid #e0e0e0;
-  padding: 2em;
+  padding: 1em;
   pointer-events: all;
   overflow: auto;
 }
