@@ -4,7 +4,11 @@
         <h3>What is it?</h3>
         <div class="row mt-4">
             <div class="col-md-1 align-self-center alignCenter">
-                <img :src="`${publicPath}logo.png`" width="200" height="200" alt="logo">
+                <picture>
+                    <source :srcset="`${publicPath}logo.webp`" type="image/webp">
+                    <source :srcset="`${publicPath}logo.png`" type="image/png"> 
+                    <img :src="`${publicPath}logo.png`" width="200" height="200" alt="logo">
+                </picture>
             </div>
             <div class="col-md-4 align-self-center">
                 <h4>Quality of JS packages</h4>
