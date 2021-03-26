@@ -1,6 +1,6 @@
 {
   "name": "qualityofjspackages-website",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "author": {
     "name": "Vincent Vallet",
@@ -37,11 +37,11 @@
     "deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "1.2.34",
-    "@fortawesome/free-brands-svg-icons": "5.15.2",
-    "@fortawesome/free-regular-svg-icons": "5.15.2",
+    "@fortawesome/fontawesome-svg-core": "1.2.35",
+    "@fortawesome/free-brands-svg-icons": "5.15.3",
+    "@fortawesome/free-regular-svg-icons": "5.15.3",
     "@fortawesome/vue-fontawesome": "2.0.2",
-    "apexcharts": "3.25.0",
+    "apexcharts": "3.26.0",
     "axios": "^0.21.1",
     "bootstrap": "4.6.0",
     "dayjs": "1.10.4",
@@ -52,12 +52,12 @@
     "vue-fullpage.js": "0.1.7"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
+    "@vue/cli-plugin-babel": "~4.5.12",
+    "@vue/cli-plugin-eslint": "~4.5.12",
+    "@vue/cli-service": "~4.5.12",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.21.0",
-    "eslint-plugin-vue": "^7.7.0",
+    "eslint": "^7.22.0",
+    "eslint-plugin-vue": "^7.8.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
