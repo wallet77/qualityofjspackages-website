@@ -4,7 +4,7 @@
         <div class="slide">
             <h3>Javascript packages overall quality</h3>
             <div class="row mt-4">
-                <MainChart type="radialBar" :options="options" :series="series" />
+                <MainChart type="radialBar" :options="options" :series="series" v-if="display" />
                 <div class="col-md-7 align-self-center explanation">
                     <div>
                         Powered by <a href="https://github.com/wallet77/qualscan" target="_blank" rel="noopener noreferrer">Qualscan</a>
@@ -25,7 +25,7 @@
             <h3>JS packages quality percentiles</h3>
             <div class="row mt-4">
                 <div class="col-md-1"></div>
-                <MainChart type="radialBar" :options="optionsDetails" :series="seriesDetails" :col="6" /> 
+                <MainChart type="radialBar" :options="optionsDetails" :series="seriesDetails" :col="6" v-if="display" /> 
                 <div class="col-md-2 valueImportant info align-self-center">
                     <span class="subTitle text-center">Min</span>
                     <br />
@@ -43,7 +43,7 @@
             <h3>Details per category</h3>
             <div class="row mt-4">
                 <div class="col-md-3"></div>
-                <MainChart type="bar" :options="optionsProgress" :series="seriesProgress" :col=6 />
+                <MainChart type="bar" :options="optionsProgress" :series="seriesProgress" :col=6 v-if="display" />
                 <div class="col-md-3"></div>
             </div>
         </div>
@@ -51,12 +51,13 @@
 </template>
 
 <script>
-import MainChart from '@/components/MainChart'
+const MainChart = () => import('@/components/MainChart')
 import {radialOptions} from '../variables'
 export default {
     name: 'qualscan',
     props: {
-        report: Object
+        report: Object,
+        display: Boolean
     },
     components: {
         MainChart

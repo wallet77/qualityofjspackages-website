@@ -4,7 +4,7 @@
         <div class="slide">
             <h3>npms.io results</h3>
             <div class="row mt-4">
-                <MainChart type="bar" :options="optionsNpms" :series="seriesNpms" />
+                <MainChart type="bar" :options="optionsNpms" :series="seriesNpms" v-if="display" />
                 <div class="col-md-7 align-self-center explanation">
                     <div>
                         Powered by <a href="https://npms.io" target="_blank" rel="noopener noreferrer">Npms.io</a>.
@@ -23,12 +23,13 @@
 </template>
 
 <script>
-import MainChart from '@/components/MainChart'
+const MainChart = () => import('@/components/MainChart')
 import {colors} from '../variables'
 export default {
     name: 'npms',
     props: {
-        report: Object
+        report: Object,
+        display: Boolean
     },
     components: {
       MainChart

@@ -11,19 +11,20 @@
             <li v-on:click="switchMode" data-menuanchor="consumption"><a href="#consumption">Consumption</a></li>
             <li v-on:click="switchMode" data-menuanchor="npms"><a href="#npms">npms.io</a></li>
             <li v-on:click="switchMode" data-menuanchor="contributing"><a href="#contributing">Contributing</a></li>
-            <li v-on:click="switchMode" class="icon"><a href="javascript:void(0);">&#9776;</a></li>
+            <li v-on:click="switchMode" class="icon">&#9776;</li>
         </ul>
-        <full-page :options="options" id="fullpage" v-if="loaded">
+        <full-page ref="fullpage" id="fullpage" :options="options" v-if="loaded">
             <Intro :date=date :duration=duration :details=details />
-            <Qualscan :report=qualscanData v-if="qualscanData" />
-            <CodeDuplication :report=cdData v-if="cdData" />
-            <Dependencies :report=dep v-if="dep" />
-            <Performance :report=perf v-if="perf" />
-            <Security :report=security v-if="security" />
-            <Consumption :report=consumption v-if="consumption" />
-            <NPMS :report=npms v-if="npms" />
+            <Qualscan :report=qualscanData :display=toShow.quality />
+            <CodeDuplication :report=cdData v-if="cdData" :display=toShow.copypaste />
+            <Dependencies :report=dep :display=toShow.dependencies />
+            <Performance :report=perf :display=toShow.performance />
+            <Security :report=security :display=toShow.security />
+            <Consumption :report=consumption :display=toShow.consumption />
+            <NPMS :report=npms :display=toShow.npms />
             <Contact />
         </full-page>
+        
     </div>
 </template>
 
@@ -31,7 +32,6 @@
   import ReportService from '@/services/reports'
   import Loader from '@/components/Loader'
   import Intro from '@/components/Intro'
-  import Contact from '@/components/Contact'
   import Qualscan from '@/components/Qualscan'
   import NPMS from '@/components/NPMS'
   import Dependencies from '@/components/Dependencies'
@@ -39,19 +39,21 @@
   import Security from '@/components/Security'
   import CodeDuplication from '@/components/CodeDuplication'
   import Consumption from '@/components/Consumption'
+  import Contact from '@/components/Contact'
+
   export default {
     name: 'app',
     components: {
       Intro,
-      Contact,
       Qualscan,
-      NPMS,
       Security,
       CodeDuplication,
       Dependencies,
       Performance,
-      Loader,
-      Consumption
+      Consumption,
+      NPMS,
+      Contact,
+      Loader
     },
     data () {
       return {
@@ -65,9 +67,21 @@
           navigation: window.matchMedia('(min-width: 640px)').matches,
           navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Dependencies", "Performance", "Security", "Consumption", "NPMS", 'Contributing'],
           anchors: ['intro', 'quality', 'copypaste', 'dependencies', 'performance', 'security', 'consumption', 'npms', 'contributing'],
-          sectionsColor: ['#0b3c1b', '#343E59', '#213b4a', '#232131', '#381535', '#34354e', '#1c401d', '#4e3434', '#000000']
+          sectionsColor: ['#0b3c1b', '#343E59', '#213b4a', '#232131', '#381535', '#34354e', '#1c401d', '#4e3434', '#000000'],
+          afterLoad: function(origin, destination) {
+            this.toShow[destination.anchor] = true
+          }.bind(this),
         },
-        qualscanData: null
+        toShow: {
+          quality: false,
+          dependencies: false,
+          copypaste: false,
+          performance: false,
+          security: false,
+          consumption: false,
+          npms: false
+        },
+        qualscanData: null,
       }
     },
     methods: {

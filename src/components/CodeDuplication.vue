@@ -5,7 +5,7 @@
             <h3>Code duplication decreases your code quality</h3>
             <div class="row mt-4">
                 <div class="col-md-2"></div>
-                <MainChart type="bar" :options="optionsCD" :series="seriesCD" />
+                <MainChart type="bar" :options="optionsCD" :series="seriesCD" v-if="display" />
                 <div class="col-md-3 align-self-center explanation">
                     Possible impact:
                     <ul class="features-list">
@@ -23,7 +23,7 @@
             <div class="row mt-4">
                 <div class="col-md-5">
                     <div class="mt-4">
-                        <apexchart width="100%" type="bar" :options="optionsCDDetails" :series="seriesCDDetails" :col="7"></apexchart>
+                        <apexchart width="100%" type="bar" :options="optionsCDDetails" :series="seriesCDDetails" :col="7" v-if="display"></apexchart>
                     </div>
                 </div>
                 <div class="col-md-5 align-self-center">
@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import MainChart from '@/components/MainChart'
+const MainChart = () => import('@/components/MainChart')
 import {barOptions, mergeObject} from '../variables'
 
 const extendOptions = mergeObject(barOptions, {
@@ -81,7 +81,8 @@ const extendOptions = mergeObject(barOptions, {
 export default {
     name: 'CodeDuplication',
     props: {
-        report: Object
+        report: Object,
+        display: Boolean
     },
     components: {
         MainChart

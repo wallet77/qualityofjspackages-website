@@ -4,20 +4,20 @@
         <div class="slide">
             <h3>Electrical consumption of npm install</h3>
             <div class="row mt-4">
-                <MainChart type="bar" :options="options" :series="series" />
+                <MainChart type="bar" :options="options" :series="series" v-if="display" />
                 <div class="col-md-3 align-self-center explanation">
                     <div>
                         Powered by <a href="https://github.com/hubblo-org/scaphandre" target="_blank" rel="noopener noreferrer">Scaphandre</a>
                     </div>
                 </div>
-                <MainChart type="radialBar" :options="optionsDetails" :series="seriesDetails" :col="4" />
+                <MainChart type="radialBar" :options="optionsDetails" :series="seriesDetails" :col="4" v-if="display" />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import MainChart from '@/components/MainChart'
+const MainChart = () => import('@/components/MainChart')
 import {mergeObject, barPercentilesOptions, clone, radialOptions} from '../variables'
 
 const getReadable = (size, suffix='W', precision=2, decimal=2) => {
@@ -46,7 +46,8 @@ const optionsConsumption = mergeObject(clone(barPercentilesOptions), {
 export default {
     name: 'consumption',
     props: {
-        report: Object
+        report: Object,
+        display: Boolean
     },
     components: {
       MainChart

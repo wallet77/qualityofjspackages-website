@@ -4,7 +4,7 @@
         <div class="slide">
             <h3>JS modules security vulnerabilities</h3>
             <div class="row mt-4">
-                <MainChart type="bar" :options="options" :series="series" />
+                <MainChart type="bar" :options="options" :series="series" v-if="display" />
                 <div class="col-md-7 align-self-center explanation">
                     <div>
                         Powered by <a href="https://docs.npmjs.com/cli/v6/commands/npm-audit" target="_blank" rel="noopener noreferrer">NPM audit</a>.
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import MainChart from '@/components/MainChart'
+const MainChart = () => import('@/components/MainChart')
 import {colors} from '../variables'
 
 const customColors = [
@@ -50,7 +50,8 @@ const customColors = [
 export default {
     name: 'security',
     props: {
-        report: Object
+        report: Object,
+        display: Boolean
     },
     components: {
       MainChart

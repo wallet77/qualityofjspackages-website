@@ -3,22 +3,22 @@
         <div class="slide">
             <h3>Dependencies tree's size &amp; weight</h3>
             <div class="row mt-4">
-                <MainChart type="bar" :options="optionsDep" :series="seriesDep" :col=6 />
-                <MainChart type="bar" :options="optionsDepSize" :series="seriesDepSize" :col=6 />
+                <MainChart type="bar" :options="optionsDep" :series="seriesDep" :col=6 v-if="display" />
+                <MainChart type="bar" :options="optionsDepSize" :series="seriesDepSize" :col=6 v-if="display" />
             </div>
         </div>
         <div class="slide">
             <h3>Project's size &amp; weight</h3>
             <div class="row mt-4">
-                <MainChart type="bar" :options="optionsEntrycount" :series="seriesEntrycount" :col=6 />
-                <MainChart type="bar" :options="optionsSize" :series="seriesSize" :col=6 />
+                <MainChart type="bar" :options="optionsEntrycount" :series="seriesEntrycount" :col=6 v-if="display" />
+                <MainChart type="bar" :options="optionsSize" :series="seriesSize" :col=6 v-if="display" />
             </div>
         </div>
         <div class="slide">
             <h3>Require time</h3>
             <div class="row mt-4">
                 <div class="col-md-3"></div>
-                <MainChart type="bar" :options="optionsRequireTime" :series="seriesRequireTime" :col=6 />
+                <MainChart type="bar" :options="optionsRequireTime" :series="seriesRequireTime" :col=6 v-if="display" />
                 <div class="col-md-3"></div>
             </div>
         </div>
@@ -27,7 +27,7 @@
 
 <script>
 import filesize from 'filesize'
-import MainChart from '@/components/MainChart'
+const MainChart = () => import('@/components/MainChart')
 import {barOptions, barPercentilesOptions, mergeObject, clone} from '../variables'
 import prettyMs from 'pretty-ms'
 
@@ -150,7 +150,8 @@ const optionsRequireTime = mergeObject(clone(optionsDepSize), {
 export default {
     name: 'dependencies',
     props: {
-        report: Object
+        report: Object,
+        display: Boolean
     },
     components: {
       MainChart

@@ -4,7 +4,7 @@
         <div class="slide">
             <h3>Keep dependencies up to date</h3>
             <div class="row mt-4">
-                <MainChart type="bar" :options="optionsUpdates" :series="seriesUpdates" />
+                <MainChart type="bar" :options="optionsUpdates" :series="seriesUpdates" v-if="display" />
                 <div class="col-md-7 align-self-center">
                     <div class="row mt-4">
                         <div class="col-md-6 valueImportant">
@@ -33,12 +33,13 @@
 </template>
 
 <script>
-import MainChart from '@/components/MainChart'
+const MainChart = () => import('@/components/MainChart')
 import {colors} from '../variables'
 export default {
     name: 'dependencies',
     props: {
-        report: Object
+        report: Object,
+        display: Boolean
     },
     components: {
       MainChart
