@@ -68,7 +68,7 @@
           navigationTooltips: ['Intro', 'Overal quality', "Copy/paste", "Dependencies", "Performance", "Security", "Consumption", "NPMS", 'Contributing'],
           anchors: ['intro', 'quality', 'copypaste', 'dependencies', 'performance', 'security', 'consumption', 'npms', 'contributing'],
           sectionsColor: ['#0b3c1b', '#343E59', '#213b4a', '#232131', '#381535', '#34354e', '#1c401d', '#4e3434', '#000000'],
-          afterLoad: function(origin, destination) {
+          onLeave: function(origin, destination) {
             this.toShow[destination.anchor] = true
           }.bind(this),
         },
