@@ -69,6 +69,15 @@
           anchors: ['intro', 'quality', 'copypaste', 'dependencies', 'performance', 'security', 'consumption', 'npms', 'contributing'],
           sectionsColor: ['#0b3c1b', '#343E59', '#213b4a', '#232131', '#381535', '#34354e', '#1c401d', '#4e3434', '#000000'],
           onLeave: function(origin, destination) {
+            // if we display a page for the first time
+            if (this.toShow[destination.anchor] !== undefined && !this.toShow[destination.anchor]) {
+              // because of lazyloading of charts
+              // on small screens, some info are hidden
+              // we must recalculate section's height
+              this.$nextTick(() => {
+                this.$refs.fullpage.api.reBuild()
+              })
+            }
             this.toShow[destination.anchor] = true
           }.bind(this),
         },
