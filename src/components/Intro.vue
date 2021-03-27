@@ -5,9 +5,9 @@
         <div class="row mt-4">
             <div class="col-md-1 align-self-center alignCenter">
                 <picture>
-                    <source :srcset="`${publicPath}logo.webp`" type="image/webp">
-                    <source :srcset="`${publicPath}logo.png`" type="image/png"> 
-                    <img :src="`${publicPath}logo.png`" width="200" height="200" alt="logo">
+                    <source :data-srcset="`${publicPath}logo.webp`" type="image/webp">
+                    <source :data-srcset="`${publicPath}logo.png`" type="image/png"> 
+                    <img :data-src="`${publicPath}logo.png`" width="200" height="200" alt="logo">
                 </picture>
             </div>
             <div class="col-md-4 align-self-center">

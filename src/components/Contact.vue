@@ -28,19 +28,19 @@
                 <div class="dependencies row mt-4">
                     <td class="align-self-center col-md-2">
                         <a href="https://github.com/kucherenko/jscpd" target="_blank" rel="noopener noreferrer">
-                            <img :src="`${publicPath}logos/jscpd.png`" width="175" height="175" alt="jscpd" />
+                            <img :data-src="`${publicPath}logos/jscpd.png`" width="175" height="175" alt="jscpd" />
                             <div></div>
                         </a>
                     </td>
                     <td class="align-self-center col-md-2">
                         <a href="https://github.com/hubblo-org/scaphandre" target="_blank" rel="noopener noreferrer">
-                            <img :src="`${publicPath}logos/scaphandre.svg`" width="100" height="100" alt="scaphandre"/>
+                            <img :data-src="`${publicPath}logos/scaphandre.svg`" width="100" height="100" alt="scaphandre"/>
                             <div>Scaphandre</div>
                         </a>
                     </td>
                     <td class="align-self-center col-md-2">
                         <a href="https://github.com/wallet77/qualscan" target="_blank" rel="noopener noreferrer">
-                            <img :src="`${publicPath}logos/qualscan.png`" width="100" height="100" alt="qualscan" />
+                            <img :data-src="`${publicPath}logos/qualscan.png`" width="100" height="100" alt="qualscan" />
                             <div>Qualscan</div>
                         </a>
                     </td>
@@ -51,7 +51,7 @@
                     </td>
                     <td class="align-self-center col-md-2">
                         <a href="https://npms.io/" target="_blank" rel="noopener noreferrer">
-                            <img :src="`${publicPath}logos/npms.png`" width="100" height="100" alt="npms" />
+                            <img :data-src="`${publicPath}logos/npms.png`" width="100" height="100" alt="npms" />
                             <div></div>
                         </a>
                     </td>
