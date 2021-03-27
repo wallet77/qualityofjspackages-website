@@ -1,2 +1,2 @@
 (window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0e887d"],{"8a53":function(t,e,s){"use strict";s.r(e);var n=function(){var t=this,e=t.$createElement,s=t._self._c||e;return s("div",{class:"col-md-"+t.col},[s("div",{staticClass:"mt-4"},[s("apexchart",{attrs:{width:"100%",type:t.type,options:t.options,series:t.series}})],1)])},r=[],a=(s("a9e3"),{name:"MainChart",props:{report:Object,type:String,options:Object,series:Array,col:{type:Number,default:function(){return 5}}}}),i=a,o=s("2877"),c=Object(o["a"])(i,n,r,!1,null,null,null);e["default"]=c.exports}}]);
-//# sourceMappingURL=chunk-2d0e887d.1ad3cfed.js.map
+//# sourceMappingURL=chunk-2d0e887d.24c72694.js.map
