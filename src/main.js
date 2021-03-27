@@ -16,10 +16,6 @@ library.add(faQuestionCircle)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-import VueApexCharts from 'vue-apexcharts'
-Vue.use(VueApexCharts)
-Vue.component('apexchart', VueApexCharts)
-
 import dayjs from 'dayjs'
 
 Vue.filter('formatDate', function(value) {

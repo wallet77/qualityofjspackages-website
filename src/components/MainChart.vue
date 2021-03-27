@@ -7,6 +7,9 @@
 </template>
 
 <script>
+import Vue from 'vue'
+const VueApexCharts = () => import('vue-apexcharts')
+Vue.component('apexchart', VueApexCharts)
 export default {
     name: 'MainChart',
     props: {

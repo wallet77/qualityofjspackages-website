@@ -21,11 +21,7 @@
          <div class="slide">
             <h3>Code duplication percentiles</h3>
             <div class="row mt-4">
-                <div class="col-md-5">
-                    <div class="mt-4">
-                        <apexchart width="100%" type="bar" :options="optionsCDDetails" :series="seriesCDDetails" :col="7" v-if="display"></apexchart>
-                    </div>
-                </div>
+                <MainChart type="bar" :options="optionsCDDetails" :series="seriesCDDetails" :col="7" v-if="display" />
                 <div class="col-md-5 align-self-center">
                     <div class="row mt-4">
                         <div class="col-md-4 valueImportant info align-self-center">
