@@ -29,6 +29,8 @@
                         </summary>
                         <Modal v-if="showModal" :details="details" />
                     </details>
+                    <br />
+                    <a href="#quality" class="skewBtn blue">See the report</a>
                 </div>
             </div>
         </div>
@@ -92,5 +94,36 @@ details summary:focus {
 }
 details summary::marker {
   content: none;
+}
+
+.skewBtn {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 20px;
+    height: 80px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    text-decoration: none;
+    transition: 0.5s;
+    font-size: 24px;
+    border-radius: 5px;
+    font-family: "Lato", sans-serif;
+}
+.skewBtn:hover {
+  border: none;
+  color: white;
+  font-size: 28px;
+  transform: scale(1.1);
+}
+
+/* Buttons */
+.blue {
+  border: 2px solid #1976D2;
+  color: #4ac9ea;
+}
+.blue:hover {
+  background-color: #1976D2;
+  transition: all 0.3s ease-in-out;
 }
 </style>
