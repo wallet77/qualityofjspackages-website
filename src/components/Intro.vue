@@ -30,6 +30,8 @@
                         <Modal v-if="showModal" :details="details" />
                     </details>
                     <br />
+                </div>
+                <div>
                     <a href="#quality" class="skewBtn blue">See the report</a>
                 </div>
             </div>
@@ -97,6 +99,8 @@ details summary::marker {
 }
 
 .skewBtn {
+    text-align: center;
+    width: 80%;
     margin-top: 20px;
     display: inline-block;
     padding: 20px;
@@ -113,7 +117,6 @@ details summary::marker {
 .skewBtn:hover {
   border: none;
   color: white;
-  font-size: 28px;
   transform: scale(1.1);
 }
 
