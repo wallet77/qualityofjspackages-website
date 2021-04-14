@@ -31,8 +31,19 @@
                     </details>
                     <br />
                 </div>
-                <div>
-                    <a href="#quality" class="skewBtn blue">See the report</a>
+                <div class="row mt-4">
+                    <div class="col-md-7">
+                        <a href="#quality" class="skewBtn blue">See last report</a>
+                    </div>
+                    <div class="col-md-1 align-self-center">OR</div>
+                    <div class="col-md-3 align-self-center">
+                        <select>
+                            <option value="last">Select previous report</option>
+                            <option v-for="report in reportsList" v-bind:key="report" v-bind:value="report">
+                                Report of {{ report }}
+                            </option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,6 +51,7 @@
 </template>
 
 <script>
+import reportsList from '@/resources/reportList.json'
 export default {
     name: 'intro',
     components: {
@@ -53,7 +65,8 @@ export default {
     data() {
         return {
             showModal: false,
-            publicPath: process.env.BASE_URL
+            publicPath: process.env.BASE_URL,
+            reportsList
         }
     }
 }
