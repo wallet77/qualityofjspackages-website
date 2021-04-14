@@ -32,17 +32,17 @@
                     <br />
                 </div>
                 <div class="row mt-4">
-                    <div class="col-md-7">
+                    <div class="col-md-5">
                         <a href="#quality" class="skewBtn blue">See last report</a>
                     </div>
-                    <div class="col-md-1 align-self-center">OR</div>
-                    <div class="col-md-3 align-self-center">
-                        <select>
-                            <option value="last">Select previous report</option>
-                            <option v-for="report in reportsList" v-bind:key="report" v-bind:value="report">
-                                Report of {{ report }}
-                            </option>
-                        </select>
+                    <div class="col-md-1 align-self-center smallText">OR</div>
+                    <div class="col-md-5 align-self-center smallText">
+                        <Select
+                            :options="reportsList"
+                            :default="{name:'Select previous report', value: 'last'}"
+                            class="select"
+                            @input="getValue"
+                        />
                     </div>
                 </div>
             </div>
@@ -51,22 +51,28 @@
 </template>
 
 <script>
-import reportsList from '@/resources/reportList.json'
+import Select from '@/components/basic/Select.vue'
 export default {
     name: 'intro',
     components: {
-        Modal: () => import('./Modal')
+        Modal: () => import('./Modal'),
+        Select
     },
     props: {
         date: Date,
         duration: Number,
-        details: Object
+        details: Object,
+        reportsList: Array
+    },
+    methods: {
+        getValue (value) {
+            this.$emit('previousReport', value)
+        }
     },
     data() {
         return {
             showModal: false,
-            publicPath: process.env.BASE_URL,
-            reportsList
+            publicPath: process.env.BASE_URL
         }
     }
 }
@@ -141,5 +147,9 @@ details summary::marker {
 .blue:hover {
   background-color: #1976D2;
   transition: all 0.3s ease-in-out;
+}
+
+.smallText {
+    font-size: 0.5em;
 }
 </style>
