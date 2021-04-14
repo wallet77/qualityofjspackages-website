@@ -71,6 +71,7 @@ export default {
   max-height: 90vh;
   display: flex;
   flex-direction: column;
+  z-index: 2;
 }
 .details-modal .details-modal-close {
   align-items: center;
