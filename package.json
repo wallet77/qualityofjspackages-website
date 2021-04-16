@@ -45,10 +45,10 @@
     "axios": "^0.21.1",
     "bootstrap": "4.6.0",
     "dayjs": "1.10.4",
-    "filesize": "^6.1.0",
+    "filesize": "^6.2.2",
     "pretty-ms": "7.0.1",
     "vue": "2.6.12",
-    "vue-apexcharts": "1.6.0",
+    "vue-apexcharts": "1.6.1",
     "vue-fullpage.js": "0.1.7"
   },
   "devDependencies": {
@@ -56,8 +56,8 @@
     "@vue/cli-plugin-eslint": "~4.5.12",
     "@vue/cli-service": "~4.5.12",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.22.0",
-    "eslint-plugin-vue": "^7.8.0",
+    "eslint": "^7.24.0",
+    "eslint-plugin-vue": "^7.9.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
