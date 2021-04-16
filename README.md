@@ -20,5 +20,11 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Autogenerate report lists
+
+This script will read the content of folder /public/data and build a list of available reports.  
+This list will be used in the UI to see previous reports.
+```
+node scripts/generateList.js
+```
+
