@@ -1,15 +1,20 @@
 <template>
-    <div :class="'col-md-' + col">
-        <div class="mt-4">
-            <apexchart width="100%" :type="type" :options="options" :series="series"></apexchart>
-        </div>
+  <div :class="'col-md-' + col">
+    <div class="mt-4">
+      <apexchart
+        width="100%"
+        :type="type"
+        :options="options"
+        :series="series"
+      />
     </div>
+  </div>
 </template>
 
 <script>
 import Vue from 'vue'
 const VueApexCharts = () => import('vue-apexcharts')
-Vue.component('apexchart', VueApexCharts)
+Vue.component('Apexchart', VueApexCharts)
 export default {
     name: 'MainChart',
     props: {

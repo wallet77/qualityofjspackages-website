@@ -1,20 +1,22 @@
 
 <template>
-    <div>
-        <div id="loader-wrapper">
-            <div id="loader"></div>
+  <div>
+    <div id="loader-wrapper">
+      <div id="loader" />
         
-            <div class="loader-section section-left"></div>
-            <div class="loader-section section-right"></div>
-        
-            </div>
-        <div id="loader-overlay"></div>
+      <div class="loader-section section-left" />
+      <div class="loader-section section-right" />
     </div>
+    <div id="loader-overlay" />
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'loader',
+    name: 'Loader',
+    mounted() {
+        this.addLoader(document.body)
+    },
     methods: {
         addLoader (element) {
             element.classList.add('pending');
@@ -56,9 +58,6 @@ export default {
             wrapper.parentNode.removeChild(wrapper);
             overlay.parentNode.removeChild(overlay);
         }
-    },
-    mounted() {
-        this.addLoader(document.body)
     }
 }
 </script>

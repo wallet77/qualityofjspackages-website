@@ -14,7 +14,7 @@ library.add(faGithubAlt)
 library.add(faNpm)
 library.add(faQuestionCircle)
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 
 import dayjs from 'dayjs'
 

@@ -1,9 +1,20 @@
 <template>
-  <div class="custom-select" :tabindex="tabindex" @blur="open = false">
-    <div class="selected" :class="{ open: open }" @click="open = !open">
+  <div
+    class="custom-select"
+    :tabindex="tabindex"
+    @blur="open = false"
+  >
+    <div
+      class="selected"
+      :class="{ open: open }"
+      @click="open = !open"
+    >
       {{ selected.name }}
     </div>
-    <div class="items" :class="{ selectHide: !open }">
+    <div
+      class="items"
+      :class="{ selectHide: !open }"
+    >
       <div
         v-for="option of options"
         :key="option.value"

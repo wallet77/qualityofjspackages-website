@@ -34,7 +34,11 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "node scripts/gh-pages-deploy.js"
+    "generateList": "node scripts/generateList.js",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --headless --browser chrome",
+    "test:e2e:run": "start-server-and-test start http://localhost:3000 cy:run",
+    "test:e2e:dev": "start-server-and-test dev http://localhost:3000 cy:open"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.35",
@@ -56,7 +60,11 @@
     "@vue/cli-plugin-eslint": "~4.5.12",
     "@vue/cli-service": "~4.5.12",
     "babel-eslint": "^10.1.0",
+    "cypress": "^7.1.0",
+    "cypress-audit": "^0.3.0",
     "eslint": "^7.24.0",
+    "eslint-plugin-cypress": "^2.11.2",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-vue": "^7.9.0",
     "vue-template-compiler": "^2.6.11"
   },

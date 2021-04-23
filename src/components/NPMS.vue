@@ -1,38 +1,47 @@
 
 <template>
-    <div class="section">
-        <div class="slide">
-            <h3>npms.io results</h3>
-            <div class="row mt-4">
-                <MainChart type="bar" :options="optionsNpms" :series="seriesNpms" v-if="display" />
-                <div class="col-md-7 align-self-center explanation">
-                    <div>
-                        Powered by <a href="https://npms.io" target="_blank" rel="noopener noreferrer">Npms.io</a>.
-                    </div>
-                    <br />
-                    Here is an overview of what is taken into account:
-                    <ul class="features-list">
-                        <li>Quality <span class="details">(Has linter?, Has readme?, Has tests? ...)</span></li>
-                        <li>Maintenance <span class="details">(Commit frequency, Release frequency, ...)</span></li>
-                        <li>Popularity <span class="details">(Number of downloads, Number of stars, ...)</span></li>
-                    </ul>
-                </div>
-            </div>
+  <div class="section">
+    <div class="slide">
+      <h3>npms.io results</h3>
+      <div class="row mt-4">
+        <MainChart
+          v-if="display"
+          type="bar"
+          :options="optionsNpms"
+          :series="seriesNpms"
+        />
+        <div class="col-md-7 align-self-center explanation">
+          <div>
+            Powered by <a
+              href="https://npms.io"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Npms.io</a>.
+          </div>
+          <br>
+          Here is an overview of what is taken into account:
+          <ul class="features-list">
+            <li>Quality <span class="details">(Has linter?, Has readme?, Has tests? ...)</span></li>
+            <li>Maintenance <span class="details">(Commit frequency, Release frequency, ...)</span></li>
+            <li>Popularity <span class="details">(Number of downloads, Number of stars, ...)</span></li>
+          </ul>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 const MainChart = () => import('@/components/MainChart')
 import {colors} from '../variables'
 export default {
-    name: 'npms',
+    name: 'Npms',
+    components: {
+      MainChart
+    },
     props: {
         report: Object,
         display: Boolean
-    },
-    components: {
-      MainChart
     },
     data () {
         return {

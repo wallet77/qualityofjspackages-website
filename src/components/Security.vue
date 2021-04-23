@@ -1,40 +1,49 @@
 
 <template>
-    <div class="section">
-        <div class="slide">
-            <h3>JS modules security vulnerabilities</h3>
-            <div class="row mt-4">
-                <MainChart type="bar" :options="options" :series="series" v-if="display" />
-                <div class="col-md-7 align-self-center explanation">
-                    <div>
-                        Powered by <a href="https://docs.npmjs.com/cli/v6/commands/npm-audit" target="_blank" rel="noopener noreferrer">NPM audit</a>.
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-md-3 valueImportant">
-                            <span class="subTitle">Max Critical</span>
-                            <br />
-                            <span class="valueCritical">{{ report.critical.max }}</span>
-                        </div>
-                        <div class="col-md-3 valueImportant">
-                            <span class="subTitle">Max High</span>
-                            <br />
-                            <span class="valueWarn">{{ report.high.max }}</span>
-                        </div>
-                        <div class="col-md-3 valueImportant">
-                            <span class="subTitle">Max Moderate</span>
-                            <br />
-                            <span class="valueWarn">{{ report.moderate.max }}</span>
-                        </div>
-                        <div class="col-md-3 valueImportant">
-                            <span class="subTitle">Max Low</span>
-                            <br />
-                            <span class="valueInfo">{{ report.low.max }}</span>
-                        </div>
-                    </div>
-                </div>
+  <div class="section">
+    <div class="slide">
+      <h3>JS modules security vulnerabilities</h3>
+      <div class="row mt-4">
+        <MainChart
+          v-if="display"
+          type="bar"
+          :options="options"
+          :series="series"
+        />
+        <div class="col-md-7 align-self-center explanation">
+          <div>
+            Powered by <a
+              href="https://docs.npmjs.com/cli/v6/commands/npm-audit"
+              target="_blank"
+              rel="noopener noreferrer"
+            >NPM audit</a>.
+          </div>
+          <div class="row mt-4">
+            <div class="col-md-3 valueImportant">
+              <span class="subTitle">Max Critical</span>
+              <br>
+              <span class="valueCritical">{{ report.critical.max }}</span>
             </div>
+            <div class="col-md-3 valueImportant">
+              <span class="subTitle">Max High</span>
+              <br>
+              <span class="valueWarn">{{ report.high.max }}</span>
+            </div>
+            <div class="col-md-3 valueImportant">
+              <span class="subTitle">Max Moderate</span>
+              <br>
+              <span class="valueWarn">{{ report.moderate.max }}</span>
+            </div>
+            <div class="col-md-3 valueImportant">
+              <span class="subTitle">Max Low</span>
+              <br>
+              <span class="valueInfo">{{ report.low.max }}</span>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -48,13 +57,13 @@ const customColors = [
     colors[0]
 ]
 export default {
-    name: 'security',
+    name: 'Security',
+    components: {
+      MainChart
+    },
     props: {
         report: Object,
         display: Boolean
-    },
-    components: {
-      MainChart
     },
     data () {
         const data = []

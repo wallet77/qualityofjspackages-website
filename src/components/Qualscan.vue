@@ -1,66 +1,93 @@
 
 <template>
-    <div class="section">
-        <div class="slide">
-            <h3>Javascript packages overall quality</h3>
-            <div class="row mt-4">
-                <MainChart type="radialBar" :options="options" :series="series" v-if="display" />
-                <div class="col-md-7 align-self-center explanation">
-                    <div>
-                        Powered by <a href="https://github.com/wallet77/qualscan" target="_blank" rel="noopener noreferrer">Qualscan</a>
-                    </div>
-                    <br />
-                    Here is an overview of what is taken into account:
-                    <ul class="features-list">
-                        <li>Project's size</li>
-                        <li>Number of dependencies</li>
-                        <li>Weight of all dependencies</li>
-                        <li>Percentage of code duplication</li>
-                        <li>And more (<a href="https://www.npmjs.com/package/qualscan#purpose" target="_blank" rel="noopener noreferrer">see the full list</a>)</li>
-                    </ul>
-                </div>
-            </div>
+  <div class="section">
+    <div class="slide">
+      <h3>Javascript packages overall quality</h3>
+      <div class="row mt-4">
+        <MainChart
+          v-if="display"
+          type="radialBar"
+          :options="options"
+          :series="series"
+        />
+        <div class="col-md-7 align-self-center explanation">
+          <div>
+            Powered by <a
+              href="https://github.com/wallet77/qualscan"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Qualscan</a>
+          </div>
+          <br>
+          Here is an overview of what is taken into account:
+          <ul class="features-list">
+            <li>Project's size</li>
+            <li>Number of dependencies</li>
+            <li>Weight of all dependencies</li>
+            <li>Percentage of code duplication</li>
+            <li>
+              And more (<a
+                href="https://www.npmjs.com/package/qualscan#purpose"
+                target="_blank"
+                rel="noopener noreferrer"
+              >see the full list</a>)
+            </li>
+          </ul>
         </div>
-        <div class="slide">
-            <h3>JS packages quality percentiles</h3>
-            <div class="row mt-4">
-                <div class="col-md-1"></div>
-                <MainChart type="radialBar" :options="optionsDetails" :series="seriesDetails" :col="6" v-if="display" /> 
-                <div class="col-md-2 valueImportant info align-self-center">
-                    <span class="subTitle text-center">Min</span>
-                    <br />
-                    <span class="valueCritical">~{{ report.qualscan.min }}%</span>
-                </div>
-                <div class="col-md-2 valueImportant info align-self-center">
-                     <span class="subTitle text-center">Max</span>
-                    <br />
-                    <span class="valueSucceed">~{{ report.qualscan.max }}%</span>
-                </div>
-                <div class="col-md-1"></div>
-            </div>
-        </div>
-        <div class="slide">
-            <h3>Details per category</h3>
-            <div class="row mt-4">
-                <div class="col-md-3"></div>
-                <MainChart type="bar" :options="optionsProgress" :series="seriesProgress" :col=6 v-if="display" />
-                <div class="col-md-3"></div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="slide">
+      <h3>JS packages quality percentiles</h3>
+      <div class="row mt-4">
+        <div class="col-md-1" />
+        <MainChart
+          v-if="display"
+          type="radialBar"
+          :options="optionsDetails"
+          :series="seriesDetails"
+          :col="6"
+        /> 
+        <div class="col-md-2 valueImportant info align-self-center">
+          <span class="subTitle text-center">Min</span>
+          <br>
+          <span class="valueCritical">~{{ report.qualscan.min }}%</span>
+        </div>
+        <div class="col-md-2 valueImportant info align-self-center">
+          <span class="subTitle text-center">Max</span>
+          <br>
+          <span class="valueSucceed">~{{ report.qualscan.max }}%</span>
+        </div>
+        <div class="col-md-1" />
+      </div>
+    </div>
+    <div class="slide">
+      <h3>Details per category</h3>
+      <div class="row mt-4">
+        <div class="col-md-3" />
+        <MainChart
+          v-if="display"
+          type="bar"
+          :options="optionsProgress"
+          :series="seriesProgress"
+          :col="6"
+        />
+        <div class="col-md-3" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 const MainChart = () => import('@/components/MainChart')
 import {radialOptions} from '../variables'
 export default {
-    name: 'qualscan',
+    name: 'Qualscan',
+    components: {
+        MainChart
+    },
     props: {
         report: Object,
         display: Boolean
-    },
-    components: {
-        MainChart
     },
     data () {
         const seriesProgress = [{

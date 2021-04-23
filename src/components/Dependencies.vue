@@ -1,48 +1,53 @@
 
 <template>
-    <div class="section">
-        <div class="slide">
-            <h3>Keep dependencies up to date</h3>
-            <div class="row mt-4">
-                <MainChart type="bar" :options="optionsUpdates" :series="seriesUpdates" v-if="display" />
-                <div class="col-md-7 align-self-center">
-                    <div class="row mt-4">
-                        <div class="col-md-6 valueImportant">
-                            <span class="subTitle text-center">Unused dependencies</span>
-                            <br />
-                            <span class="valueWarn">~{{ report.check.dependencies.avg.toFixed(2) }}</span>
-                            <br />
-                            <span class="details">max: </span><span class="details">{{ report.check.dependencies.max.toFixed(0) }}</span>
-                            <br />
-                            <span class="details">min: </span><span class="details">{{ report.check.dependencies.min.toFixed(0) }}</span>
-                        </div>
-                        <div class="col-md-6 valueImportant">
-                            <span class="subTitle">Number of range version</span>
-                            <br />
-                            <span class="valueCritical">~{{ report.exactVersions.dependencies.avg.toFixed(2) }}</span>
-                            <br />
-                            <span class="details">max: </span><span class="details">{{ report.exactVersions.dependencies.max.toFixed(0) }}</span>
-                            <br />
-                            <span class="details">min: </span><span class="details">{{ report.exactVersions.dependencies.min.toFixed(0) }}</span>
-                        </div>
-                    </div>
-                </div>
+  <div class="section">
+    <div class="slide">
+      <h3>Keep dependencies up to date</h3>
+      <div class="row mt-4">
+        <MainChart
+          v-if="display"
+          type="bar"
+          :options="optionsUpdates"
+          :series="seriesUpdates"
+        />
+        <div class="col-md-7 align-self-center">
+          <div class="row mt-4">
+            <div class="col-md-6 valueImportant">
+              <span class="subTitle text-center">Unused dependencies</span>
+              <br>
+              <span class="valueWarn">~{{ report.check.dependencies.avg.toFixed(2) }}</span>
+              <br>
+              <span class="details">max: </span><span class="details">{{ report.check.dependencies.max.toFixed(0) }}</span>
+              <br>
+              <span class="details">min: </span><span class="details">{{ report.check.dependencies.min.toFixed(0) }}</span>
             </div>
+            <div class="col-md-6 valueImportant">
+              <span class="subTitle">Number of range version</span>
+              <br>
+              <span class="valueCritical">~{{ report.exactVersions.dependencies.avg.toFixed(2) }}</span>
+              <br>
+              <span class="details">max: </span><span class="details">{{ report.exactVersions.dependencies.max.toFixed(0) }}</span>
+              <br>
+              <span class="details">min: </span><span class="details">{{ report.exactVersions.dependencies.min.toFixed(0) }}</span>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 const MainChart = () => import('@/components/MainChart')
 import {colors} from '../variables'
 export default {
-    name: 'dependencies',
+    name: 'Dependencies',
+    components: {
+      MainChart
+    },
     props: {
         report: Object,
         display: Boolean
-    },
-    components: {
-      MainChart
     },
     data () {
         return {

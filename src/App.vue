@@ -1,31 +1,117 @@
 <template>
-    <div>
-        <loader v-if="!loaded"/>
-        <ul id="menu" class="topnav">
-            <li v-on:click="switchMode" data-menuanchor="intro" class="active"><a href="#intro">Intro</a></li>
-            <li v-on:click="switchMode" data-menuanchor="quality"><a href="#quality">Overview</a></li>
-            <li v-on:click="switchMode" data-menuanchor="copypaste"><a href="#copypaste">Copy/Paste</a></li>
-            <li v-on:click="switchMode" data-menuanchor="dependencies"><a href="#dependencies">Dependencies</a></li>
-            <li v-on:click="switchMode" data-menuanchor="performance"><a href="#performance">Performance</a></li>
-            <li v-on:click="switchMode" data-menuanchor="security"><a href="#security">Security</a></li>
-            <li v-on:click="switchMode" data-menuanchor="consumption"><a href="#consumption">Consumption</a></li>
-            <li v-on:click="switchMode" data-menuanchor="npms"><a href="#npms">npms.io</a></li>
-            <li v-on:click="switchMode" data-menuanchor="contributing"><a href="#contributing">Contributing</a></li>
-            <li v-on:click="switchMode" class="icon">&#9776;</li>
-        </ul>
-        <full-page ref="fullpage" id="fullpage" :options="options" v-if="loaded">
-            <Intro :date=date :duration=duration :details=details :reportsList=reportsList @previousReport="loadReport" />
-            <Qualscan :report=qualscanData :display=toShow.quality />
-            <CodeDuplication :report=cdData v-if="cdData" :display=toShow.copypaste />
-            <Dependencies :report=dep :display=toShow.dependencies />
-            <Performance :report=perf :display=toShow.performance />
-            <Security :report=security :display=toShow.security />
-            <Consumption :report=consumption :display=toShow.consumption />
-            <NPMS :report=npms :display=toShow.npms />
-            <Contact />
-        </full-page>
-        
-    </div>
+  <div>
+    <loader v-if="!loaded" />
+    <ul
+      id="menu"
+      class="topnav"
+    >
+      <li
+        data-menuanchor="intro"
+        class="active"
+        @click="switchMode"
+      >
+        <a href="#intro">Intro</a>
+      </li>
+      <li
+        data-menuanchor="quality"
+        @click="switchMode"
+      >
+        <a href="#quality">Overview</a>
+      </li>
+      <li
+        data-menuanchor="copypaste"
+        @click="switchMode"
+      >
+        <a href="#copypaste">Copy/Paste</a>
+      </li>
+      <li
+        data-menuanchor="dependencies"
+        @click="switchMode"
+      >
+        <a href="#dependencies">Dependencies</a>
+      </li>
+      <li
+        data-menuanchor="performance"
+        @click="switchMode"
+      >
+        <a href="#performance">Performance</a>
+      </li>
+      <li
+        data-menuanchor="security"
+        @click="switchMode"
+      >
+        <a href="#security">Security</a>
+      </li>
+      <li
+        data-menuanchor="consumption"
+        @click="switchMode"
+      >
+        <a href="#consumption">Consumption</a>
+      </li>
+      <li
+        data-menuanchor="npms"
+        @click="switchMode"
+      >
+        <a href="#npms">npms.io</a>
+      </li>
+      <li
+        data-menuanchor="contributing"
+        @click="switchMode"
+      >
+        <a href="#contributing">Contributing</a>
+      </li>
+      <li
+        class="icon"
+        @click="switchMode"
+      >
+        &#9776;
+      </li>
+    </ul>
+    <full-page
+      v-if="loaded"
+      id="fullpage"
+      ref="fullpage"
+      :options="options"
+    >
+      <Intro
+        :date="date"
+        :duration="duration"
+        :details="details"
+        :reports-list="reportsList"
+        @previousReport="loadReport"
+      />
+      <Qualscan
+        :report="qualscanData"
+        :display="toShow.quality"
+      />
+      <CodeDuplication
+        v-if="cdData"
+        :report="cdData"
+        :display="toShow.copypaste"
+      />
+      <Dependencies
+        :report="dep"
+        :display="toShow.dependencies"
+      />
+      <Performance
+        :report="perf"
+        :display="toShow.performance"
+      />
+      <Security
+        :report="security"
+        :display="toShow.security"
+      />
+      <Consumption
+        :report="consumption"
+        :display="toShow.consumption"
+      />
+      <NPMS
+        :report="npms"
+        :display="toShow.npms"
+      />
+      <Contact />
+    </full-page>
+  </div>
 </template>
 
 <script>
@@ -57,7 +143,7 @@
   }
 
   export default {
-    name: 'app',
+    name: 'App',
     components: {
       Intro,
       Qualscan,
@@ -109,6 +195,9 @@
         qualscanData: null,
       }
     },
+    async created() {
+      this.loadReport()
+    },
     methods: {
       switchMode: () => {
         const x = document.getElementById("menu");
@@ -159,9 +248,6 @@
         }
         this.loaded = true
       }
-    },
-    async created() {
-      this.loadReport()
     }
   }
 </script>

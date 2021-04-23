@@ -1,19 +1,34 @@
 
 <template>
-    <div class="section">
-        <div class="slide">
-            <h3>Electrical consumption of npm install</h3>
-            <div class="row mt-4">
-                <MainChart type="bar" :options="options" :series="series" v-if="display" />
-                <div class="col-md-3 align-self-center explanation">
-                    <div>
-                        Powered by <a href="https://github.com/hubblo-org/scaphandre" target="_blank" rel="noopener noreferrer">Scaphandre</a>
-                    </div>
-                </div>
-                <MainChart type="radialBar" :options="optionsDetails" :series="seriesDetails" :col="4" v-if="display" />
-            </div>
+  <div class="section">
+    <div class="slide">
+      <h3>Electrical consumption of npm install</h3>
+      <div class="row mt-4">
+        <MainChart
+          v-if="display"
+          type="bar"
+          :options="options"
+          :series="series"
+        />
+        <div class="col-md-3 align-self-center explanation">
+          <div>
+            Powered by <a
+              href="https://github.com/hubblo-org/scaphandre"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Scaphandre</a>
+          </div>
         </div>
+        <MainChart
+          v-if="display"
+          type="radialBar"
+          :options="optionsDetails"
+          :series="seriesDetails"
+          :col="4"
+        />
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -44,13 +59,13 @@ const optionsConsumption = mergeObject(clone(barPercentilesOptions), {
 })
 
 export default {
-    name: 'consumption',
+    name: 'Consumption',
+    components: {
+      MainChart
+    },
     props: {
         report: Object,
         display: Boolean
-    },
-    components: {
-      MainChart
     },
     data () {
         return {
