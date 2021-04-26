@@ -32,6 +32,8 @@ jobs:
         qualscan --scripts
 
     - name: Run tests
+      env:
+        IS_CI: true
       run: |
         npm run build
         npm run test
