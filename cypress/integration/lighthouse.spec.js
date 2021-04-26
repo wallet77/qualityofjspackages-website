@@ -7,7 +7,7 @@ context('Test website quality', () => {
     it('should pass the lighthouse audits', () => {
         cy.lighthouse(
             {
-                performance: Cypress.env('IS_CI') ? 65 : 84,
+                performance: Cypress.env('IS_CI') ? 55 : 84,
                 accessibility: 95,
                 'best-practices': 93,
                 pwa: 1
