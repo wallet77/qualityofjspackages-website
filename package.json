@@ -38,7 +38,7 @@
     "generateList": "node scripts/generateList.js",
     "test": "start-server-and-test serve:production http://localhost:8080 cy:run",
     "cy:open": "cypress open",
-    "cy:run": "cypress run --headless --browser chrome",
+    "cy:run": "cypress run --headless --browser chrome --env IS_CI=$IS_CI",
     "test:e2e:dev": "start-server-and-test serve http://localhost:8080 cy:open"
   },
   "dependencies": {
