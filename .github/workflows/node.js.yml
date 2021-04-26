@@ -32,4 +32,6 @@ jobs:
         qualscan --scripts
 
     - name: Run tests
-      run: npm run test
+      run: |
+        npm run build
+        npm run test
