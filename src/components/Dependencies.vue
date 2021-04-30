@@ -2,7 +2,7 @@
 <template>
   <div class="section">
     <div class="slide">
-      <h3>Keep dependencies up to date</h3>
+      <h1>Keep dependencies up to date</h1>
       <div class="row mt-4">
         <MainChart
           v-if="display"

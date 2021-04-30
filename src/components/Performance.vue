@@ -1,7 +1,7 @@
 <template>
   <div class="section">
     <div class="slide">
-      <h3>Dependencies tree's size &amp; weight</h3>
+      <h1>Dependencies tree's size &amp; weight</h1>
       <div class="row mt-4">
         <MainChart
           v-if="display"
@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="slide">
-      <h3>Project's size &amp; weight</h3>
+      <h1>Project's size &amp; weight</h1>
       <div class="row mt-4">
         <MainChart
           v-if="display"
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="slide">
-      <h3>Require time</h3>
+      <h1>Require time</h1>
       <div class="row mt-4">
         <div class="col-md-3" />
         <MainChart

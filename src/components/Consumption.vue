@@ -2,7 +2,7 @@
 <template>
   <div class="section">
     <div class="slide">
-      <h3>Electrical consumption of npm install</h3>
+      <h1>Electrical consumption of npm install</h1>
       <div class="row mt-4">
         <MainChart
           v-if="display"

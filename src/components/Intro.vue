@@ -1,7 +1,7 @@
 
 <template>
   <div class="section">
-    <h3>What is it?</h3>
+    <h1>What is it?</h1>
     <div class="row mt-4">
       <div class="col-md-1 align-self-center alignCenter">
         <picture>
@@ -22,7 +22,7 @@
         </picture>
       </div>
       <div class="col-md-4 align-self-center">
-        <h4>Quality of JS packages</h4>
+        <h2>Quality of JS packages</h2>
       </div>
       <div class="col-md-7 explanation">
         <div class="align-middle">

@@ -2,7 +2,7 @@
 <template>
   <div class="section">
     <div class="slide">
-      <h3>Javascript packages overall quality</h3>
+      <h1>Javascript packages overall quality</h1>
       <div class="row mt-4">
         <MainChart
           v-if="display"
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="slide">
-      <h3>JS packages quality percentiles</h3>
+      <h1>JS packages quality percentiles</h1>
       <div class="row mt-4">
         <div class="col-md-1" />
         <MainChart
@@ -61,7 +61,7 @@
       </div>
     </div>
     <div class="slide">
-      <h3>Details per category</h3>
+      <h1>Details per category</h1>
       <div class="row mt-4">
         <div class="col-md-3" />
         <MainChart

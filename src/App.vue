@@ -324,8 +324,8 @@ body{font-family:arial,helvetica; min-width: 100v; min-height: 100vh; }
 
 .section{position:relative; color: #fff;}
 
-h3{font-size:3em;text-align:center;color:#fff;font-weight:700}
-h4{
+h1{font-size:3em;text-align:center;color:#fff;font-weight:700}
+h2{
     font-size: 3em;
     text-align: center;
     color: #fff;
@@ -369,7 +369,7 @@ h4{
     text-align: left;
   }
 
-  h3 {
+  h1 {
     margin-top: 45px;
   }
 

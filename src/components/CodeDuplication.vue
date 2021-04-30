@@ -2,7 +2,7 @@
 <template>
   <div class="section">
     <div class="slide">
-      <h3>Code duplication decreases your code quality</h3>
+      <h1>Code duplication decreases your code quality</h1>
       <div class="row mt-4">
         <div class="col-md-2" />
         <MainChart
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="slide">
-      <h3>Code duplication percentiles</h3>
+      <h1>Code duplication percentiles</h1>
       <div class="row mt-4">
         <MainChart
           v-if="display"

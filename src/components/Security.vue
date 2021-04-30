@@ -2,7 +2,7 @@
 <template>
   <div class="section">
     <div class="slide">
-      <h3>JS modules security vulnerabilities</h3>
+      <h1>JS modules security vulnerabilities</h1>
       <div class="row mt-4">
         <MainChart
           v-if="display"

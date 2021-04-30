@@ -1,7 +1,7 @@
 
 <template>
   <div class="section">
-    <h3>Contributing</h3>
+    <h1>Contributing</h1>
     <div class="row mt-4">
       <div class="col-md-1" />
       <div class="col-md-10 explanation">

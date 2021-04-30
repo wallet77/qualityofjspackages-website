@@ -2,7 +2,7 @@
 <template>
   <div class="section">
     <div class="slide">
-      <h3>npms.io results</h3>
+      <h1>npms.io results</h1>
       <div class="row mt-4">
         <MainChart
           v-if="display"
