@@ -1,116 +1,120 @@
 <template>
   <div>
     <loader v-if="!loaded" />
-    <ul
-      id="menu"
-      class="topnav"
-    >
-      <li
-        data-menuanchor="intro"
-        class="active"
-        @click="switchMode"
+    <nav>
+      <ul
+        id="menu"
+        class="topnav"
       >
-        <a href="#intro">Intro</a>
-      </li>
-      <li
-        data-menuanchor="quality"
-        @click="switchMode"
+        <li
+          data-menuanchor="intro"
+          class="active"
+          @click="switchMode"
+        >
+          <a href="#intro">Intro</a>
+        </li>
+        <li
+          data-menuanchor="quality"
+          @click="switchMode"
+        >
+          <a href="#quality">Overview</a>
+        </li>
+        <li
+          data-menuanchor="copypaste"
+          @click="switchMode"
+        >
+          <a href="#copypaste">Copy/Paste</a>
+        </li>
+        <li
+          data-menuanchor="dependencies"
+          @click="switchMode"
+        >
+          <a href="#dependencies">Dependencies</a>
+        </li>
+        <li
+          data-menuanchor="performance"
+          @click="switchMode"
+        >
+          <a href="#performance">Performance</a>
+        </li>
+        <li
+          data-menuanchor="security"
+          @click="switchMode"
+        >
+          <a href="#security">Security</a>
+        </li>
+        <li
+          data-menuanchor="consumption"
+          @click="switchMode"
+        >
+          <a href="#consumption">Consumption</a>
+        </li>
+        <li
+          data-menuanchor="npms"
+          @click="switchMode"
+        >
+          <a href="#npms">npms.io</a>
+        </li>
+        <li
+          data-menuanchor="contributing"
+          @click="switchMode"
+        >
+          <a href="#contributing">Contributing</a>
+        </li>
+        <li
+          class="icon"
+          @click="switchMode"
+        >
+          &#9776;
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <full-page
+        v-if="loaded"
+        id="fullpage"
+        ref="fullpage"
+        :options="options"
       >
-        <a href="#quality">Overview</a>
-      </li>
-      <li
-        data-menuanchor="copypaste"
-        @click="switchMode"
-      >
-        <a href="#copypaste">Copy/Paste</a>
-      </li>
-      <li
-        data-menuanchor="dependencies"
-        @click="switchMode"
-      >
-        <a href="#dependencies">Dependencies</a>
-      </li>
-      <li
-        data-menuanchor="performance"
-        @click="switchMode"
-      >
-        <a href="#performance">Performance</a>
-      </li>
-      <li
-        data-menuanchor="security"
-        @click="switchMode"
-      >
-        <a href="#security">Security</a>
-      </li>
-      <li
-        data-menuanchor="consumption"
-        @click="switchMode"
-      >
-        <a href="#consumption">Consumption</a>
-      </li>
-      <li
-        data-menuanchor="npms"
-        @click="switchMode"
-      >
-        <a href="#npms">npms.io</a>
-      </li>
-      <li
-        data-menuanchor="contributing"
-        @click="switchMode"
-      >
-        <a href="#contributing">Contributing</a>
-      </li>
-      <li
-        class="icon"
-        @click="switchMode"
-      >
-        &#9776;
-      </li>
-    </ul>
-    <full-page
-      v-if="loaded"
-      id="fullpage"
-      ref="fullpage"
-      :options="options"
-    >
-      <Intro
-        :date="date"
-        :duration="duration"
-        :details="details"
-        :reports-list="reportsList"
-        @previousReport="loadReport"
-      />
-      <Qualscan
-        :report="qualscanData"
-        :display="toShow.quality"
-      />
-      <CodeDuplication
-        v-if="cdData"
-        :report="cdData"
-        :display="toShow.copypaste"
-      />
-      <Dependencies
-        :report="dep"
-        :display="toShow.dependencies"
-      />
-      <Performance
-        :report="perf"
-        :display="toShow.performance"
-      />
-      <Security
-        :report="security"
-        :display="toShow.security"
-      />
-      <Consumption
-        :report="consumption"
-        :display="toShow.consumption"
-      />
-      <NPMS
-        :report="npms"
-        :display="toShow.npms"
-      />
-      <Contact />
-    </full-page>
+        <Intro
+          :date="date"
+          :duration="duration"
+          :details="details"
+          :reports-list="reportsList"
+          @previousReport="loadReport"
+        />
+        <Qualscan
+          :report="qualscanData"
+          :display="toShow.quality"
+        />
+        <CodeDuplication
+          v-if="cdData"
+          :report="cdData"
+          :display="toShow.copypaste"
+        />
+        <Dependencies
+          :report="dep"
+          :display="toShow.dependencies"
+        />
+        <Performance
+          :report="perf"
+          :display="toShow.performance"
+        />
+        <Security
+          :report="security"
+          :display="toShow.security"
+        />
+        <Consumption
+          :report="consumption"
+          :display="toShow.consumption"
+        />
+        <NPMS
+          :report="npms"
+          :display="toShow.npms"
+        />
+        <Contact />
+      </full-page>
+    </main>
   </div>
 </template>
 
