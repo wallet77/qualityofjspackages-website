@@ -20,9 +20,8 @@ context('Test website quality', () => {
         )
     })
 
-    xit('should pass the pa11y audits', () => {
+    it('should pass the pa11y audits', () => {
         cy.visit('/')
-        cy.get('.section').should('be.visible')
         cy.pa11y()
     })
 })
