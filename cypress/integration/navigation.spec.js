@@ -1,0 +1,32 @@
+context('Test website nav', () => {
+    beforeEach(() => {
+        cy.visit('/')
+        
+    })
+
+    it('should navigate from intro to contributing', () => {
+        cy.get('h3').contains('What is it?').should('be.visible')
+        cy.get('[data-menuanchor="quality"]').click()
+        cy.get('.apexcharts-svg').should('be.visible')
+        cy.get('h3').contains('Javascript packages overall quality').should('be.visible')
+        cy.get('div.active .fp-next').click()
+        cy.get('.apexcharts-svg').should('be.visible')
+        cy.get('h3').contains('JS packages quality percentiles').should('be.visible')
+        cy.get('[data-menuanchor="copypaste"]').click()
+        cy.get('h3').contains('Code duplication decreases your code quality').should('be.visible')
+        cy.get('[data-menuanchor="dependencies"]').click()
+        cy.get('h3').contains('Keep dependencies up to date').should('be.visible')
+        cy.get('[data-menuanchor="performance"]').click()
+        cy.get('h3').contains('Dependencies tree\'s size & weight').should('be.visible')
+        cy.get('[data-menuanchor="security"]').click()
+        cy.get('h3').contains('JS modules security vulnerabilities').should('be.visible')
+        cy.get('[data-menuanchor="consumption"]').click()
+        cy.get('h3').contains('Electrical consumption of npm install').should('be.visible')
+        cy.get('[data-menuanchor="npms"]').click()
+        cy.get('h3').contains('npms.io results').should('be.visible')
+        cy.get('[data-menuanchor="contributing"]').click()
+        cy.get('h3').contains('Contributing').should('be.visible')
+        cy.get('#fp-nav [href="#intro"]').click()
+        cy.get('h3').contains('What is it?').should('be.visible')
+    })
+})
